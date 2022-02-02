@@ -1,0 +1,99 @@
+<!--
+  Generated template for the ProfilePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <back-static-header></back-static-header>
+</ion-header>
+
+<ion-content class="about-section">
+    <section class="about-bg">
+        <ion-row w-1024 justify-content-center>
+            <ion-col col-lg-8 col-md-12 col-12>
+                <h1 class="static-headings">About Wakeful<sup>™</sup></h1>
+                <h2 text-center>Mindful awareness means paying full attention to the moments of our lives as they are unfolding in the present moment, with a quality of openness, curiosity, and compassion for ourselves and others.</h2>
+            </ion-col>
+        </ion-row>
+    </section>
+    <section class="w-1024">
+        <ion-grid margin-top col-12>
+            <ion-row class="cont-main">
+                <ion-col padding col-lg-6 col-md-6 col-12 class="about-cont">
+                    <p class="gray-text"> Being able to tune into our lives in this way is one of the ultimate gifts we can give ourselves in both good times and bad.</p>
+                    <p class="gray-text">It is also possibly one of the greatest challenges we modern humans face in our increasingly fast-pasted, multi-tasking, distracted
+                        lives.</p>
+                </ion-col>
+                <ion-col padding col-lg-6 col-md-6 col-12 text-center class="about-img">
+                    <img src="assets/images/about_img_1.png">
+                </ion-col>
+            </ion-row>
+            <ion-row class="cont-main">
+                <ion-col padding col-lg-6 col-md-6 col-12 text-center class="about-img">
+                    <img src="assets/images/about_img_2.png">
+                </ion-col>
+                <ion-col padding col-lg-6 col-md-6 col-12 class="about-cont">
+                    <p class="gray-text"> Wakeful<sup>™</sup> is an online mindfulness training environment that supports the development of foundational skills, attitudes, and behaviors of mindfulness. Created by mindfulness meditation practitioners, teachers, and researchers, Wakeful<sup>™</sup> was carefully developed to meet each mindfulness student wherever they are in their learning journey.</p>
+                </ion-col>
+            </ion-row>
+            <ion-row class="cont-main">
+                <ion-col padding col-lg-6 col-md-6 col-12 class="about-cont">
+                    <p class="gray-text">  Wakeful<sup>™</sup> was also developed by and for mindfulness researchers, so this online learning environment can also serve as a secure data collection platform that contributes to increased knowledge, insights and discoveries about this ancient contemplative practice and how it might benefit our health and wellbeing.</p>
+                </ion-col>
+                <ion-col padding col-lg-6 col-md-6 col-12 text-center class="about-img">
+                    <img src="assets/images/about_img_3.png">
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+	</section>
+	<section class="video-section">
+		<div class="w-1024">
+			<ion-grid margin-top col-12>
+				<ion-row w-1024 justify-content-center class="video-bg">
+					<ion-col col-lg-6 col-md-6 col-12>
+						<h2 class="heading" text-center><strong>New Users</strong></h2>
+						<div class="videos">
+							<vg-player (onPlayerReady)="onPlayerReady($event, 0)">
+								<vg-play-pause class="ion-md-im-brandbubble f-11em" *ngIf="players[0]?.api?.state == 'paused'" (click)="onPlay(players[0]?.api, 0)"></vg-play-pause>
+								<vg-play-pause class="pause-icon" *ngIf="players[0]?.api?.state != 'paused'" (click)="onPlay(players[0]?.api, 0)"></vg-play-pause>
+								<vg-controls>
+									<vg-time-display vgProperty="current" vgFormat="mm:ss"></vg-time-display>
+									<vg-scrub-bar>
+										<vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+									</vg-scrub-bar>
+									<vg-time-display vgProperty="total" vgFormat="mm:ss"></vg-time-display>
+								</vg-controls>
+								<video #media [vgMedia]="media" id="singleVideo" preload="auto" poster="assets/images/about_01.jpg" [controls]="controls"
+									style="background: #F5F5F5">
+									<source *ngIf="user" src="assets/media/16a_Video_16a_Sizzle Reel_User.mp4">
+								</video>
+							</vg-player>
+						</div>
+					</ion-col>
+					<ion-col col-lg-6 col-md-6 col-12>
+						<h2 class="heading" text-center><strong>Administrators & Researchers</strong></h2>
+						<div class="videos">
+							<vg-player (onPlayerReady)="onPlayerReady($event, 1)">
+								<vg-play-pause class="ion-md-im-brandbubble f-11em" *ngIf="players[1]?.api?.state == 'paused'"	(click)="onPlay(players[1]?.api, 1)"></vg-play-pause>
+								<vg-play-pause class="pause-icon" *ngIf="players[1]?.api?.state != 'paused'" (click)="onPlay(players[1]?.api, 1)"></vg-play-pause>
+								<vg-controls>
+									<vg-time-display vgProperty="current" vgFormat="mm:ss"></vg-time-display>
+									<vg-scrub-bar>
+										<vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+									</vg-scrub-bar>
+									<vg-time-display vgProperty="total" vgFormat="mm:ss"></vg-time-display>
+								</vg-controls>
+
+								<video #mediaPlayer [vgMedia]="mediaPlayer" id="singleVideo" preload="auto" poster="assets/images/about_02.jpg" [controls]="controls"	style="background: #F5F5F5">
+									<source *ngIf="administartor" src="assets/media/16b_Video_16b_Sizzle Reel_Administrator.mp4">
+								</video>
+							</vg-player>
+						</div>
+					</ion-col>
+				</ion-row>
+			</ion-grid>
+		</div>
+    </section>
+    <static-footer></static-footer>
+</ion-content>

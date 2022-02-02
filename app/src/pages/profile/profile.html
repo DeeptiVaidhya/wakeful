@@ -1,0 +1,165 @@
+<!--
+  Generated template for the ProfilePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+	<back-static-header></back-static-header>
+</ion-header>
+<ion-content>
+	<section class="w-1024" padding>
+		<div col-lg-5 col-12 class="m-0-auto">
+
+			<div text-center>
+				<div *ngIf="user_detail['profile_picture'] != ''; else elseBlock">
+					<img class="round-image-big" src="assets/images/profile/{{user_detail['profile_picture']}}" alt="{{ user_detail['fullname'] }}" />
+				</div>
+
+				<ng-template #elseBlock>
+					<div id="large_circle" data-profile_initials>{{ user_detail['username'].charAt(0).toUpperCase() }}</div>
+				</ng-template>
+
+				<h1 class="gray-text">
+					<strong>{{ user_detail['fullname'] }}</strong>
+				</h1>
+			</div>
+			<form [formGroup]="profileForm" (ngSubmit)="updateProfile()" autocomplete="off">
+				<ion-row margin-top margin-bottom padding-top>
+					<h2 col-12 text-center class="gray-text">
+						<strong>Personal details</strong>
+					</h2>
+				</ion-row>
+				<ion-row>
+					<ion-label stacked>EMAIL</ion-label>
+					<ion-item>
+						<ion-input value="{{ user_detail['email'] }}" (focus)="isTouched('email',true)" (focusout)="isTouched('email',false)"
+						 formControlName="email" id="email" type="text" (blur)="isEmailUnique($event.target.value)" [class.invalid]="!profileForm.controls.email.valid && (profileForm.controls.email.dirty)"></ion-input>
+						<ion-icon name="checkmark" item-right color="green" *ngIf="profileForm.controls['email'].touched && profileForm.controls['email'].valid && is_unique_email"></ion-icon>
+					</ion-item>
+
+					<p class="error m-0-auto" col-12 ion-text color="danger" *ngIf="profileForm.controls['email'].hasError('required') && profileForm.controls['email'].touched && !profileForm.controls['email'].hasFocus">Email
+						field is required.</p>
+					<p class="error m-0-auto" col-12 ion-text color="danger" *ngIf="profileForm.controls['email'].hasError('pattern') && profileForm.controls['email'].touched && !profileForm.controls['email'].hasFocus">Please
+						enter a valid email.</p>
+					<p class="error m-0-auto" col-12 ion-text color="danger" *ngIf="!is_unique_email && !profileForm.controls['email'].hasError('pattern')">{{is_unique_email_msg}}</p>
+				</ion-row>
+				<ion-row>
+					<ion-label col-12 stacked>CHOOSE AN AVATAR </ion-label>
+					<ion-avatar col-6>
+						<input type="hidden" value="{{user_detail['profile_picture']}}" formControlName="profile_picture" name="profile_picture">
+						<div *ngIf="user_detail['profile_picture'] != ''; else smallelseBlock">
+
+							<img *ngIf="!profile_picture" class="round-image-small" src="assets/images/profile/{{user_detail['profile_picture']}}" alt="{{ user_detail['username'] }}" />
+							<img *ngIf="profile_picture" class="round-image-small" src="assets/images/profile/{{profile_picture}}" alt="{{ user_detail['username'] }}" />
+							<a (click)="removeAvatar()" margin-top href="javascript:void(0);">Remove avatar</a>
+						</div>
+
+						<ng-template #smallelseBlock>
+							<img *ngIf="profile_picture" class="round-image-small" src="assets/images/profile/{{profile_picture}}" alt="{{ user_detail['username'] }}" />
+							<div *ngIf="!profile_picture" id="small_circle" data-profile_initials>{{ user_detail['username'].charAt(0).toUpperCase() }}</div>
+						</ng-template>
+					</ion-avatar>
+					<label col-6 text-right class="lbl-upload-pic">
+						<!-- <input (change)="addImage($event)" type="file" hidden/> -->
+						<span (click)="hideOverlay()" class="browse-link">Change avatar</span>
+					</label>
+				</ion-row>
+
+				<ion-row text-center margin-top margin-bottom padding-top>
+					<h2 class="gray-text" col-12>
+						<strong>Sign in details</strong>
+					</h2>
+				</ion-row>
+				<ion-row>
+					<ion-label stacked>CHOOSE A USERNAME</ion-label>
+					<ion-item>
+						<ion-input value="{{ user_detail['username'] }}" (focus)="isTouched('username',true)" (focusout)="isTouched('username',false)"
+						 formControlName="username" id="username" type="text" (blur)="isUsernameUnique($event.target.value)"
+						 [class.invalid]="!profileForm.controls.username.valid && (profileForm.controls.username.dirty)"></ion-input>
+						<ion-icon name="checkmark" item-right color="green" *ngIf="profileForm.controls['username'].touched && profileForm.controls['username'].valid && is_unique_username"></ion-icon>
+					</ion-item>
+					<p class="error m-0-auto" col-12 ion-text color="danger" *ngIf="profileForm.controls['username'].hasError('required') && profileForm.controls['username'].touched && !profileForm.controls['username'].hasFocus">Username
+						field is required.</p>
+					<p class="error m-0-auto" col-12 ion-text color="danger" *ngIf="profileForm.controls['username'].hasError('pattern') && profileForm.controls['username'].touched && !profileForm.controls['username'].hasFocus">Please
+						enter a valid username.</p>
+					<p class="error m-0-auto" col-12 ion-text color="danger" *ngIf="!is_unique_username">{{is_unique_username_msg}}</p>
+				</ion-row>
+
+				<ion-row>
+					<h5 col-12 class="gray-text" margin-top>Update password</h5>
+
+					<ion-label stacked>CURRENT PASSWORD</ion-label>
+					<ion-item>
+						<ion-input value="" (focus)="isTouched('current_password',true)" (focusout)="isTouched('current_password',false)"
+						 formControlName="current_password" id="current_password" type="password" (blur)="isCurrentPassword($event.target.value)"
+						 [class.invalid]="!profileForm.controls.current_password.valid && (profileForm.controls.current_password.dirty)"></ion-input>
+						<ion-icon name="checkmark" item-right color="green" *ngIf="profileForm.controls['current_password'].touched && is_current_password && !isNotAllowedSymbol"></ion-icon>
+					</ion-item>
+					<span class="gray-text addtional-text">For security reason please enter your current password</span>
+					<p class="error m-0-auto" col-12 ion-text color="danger" *ngIf="!is_current_password">{{is_current_password_msg}}</p>
+
+
+					<ion-label stacked>NEW PASSWORD</ion-label>
+					<ion-item>
+						<ion-input formControlName="password" (focus)="isTouched('password',true)" (focusout)="isTouched('password',false)"
+						 id="password" type="password" [class.invalid]="!profileForm.controls.password.valid && (profileForm.controls.password.dirty)"
+						 (blur)="isPreviousPassword($event.target.value)"></ion-input>
+						<ion-icon name="checkmark" item-right color="green" *ngIf="profileForm.controls['password'].touched && profileForm.controls['password'].valid &&  !isNotAllowedSymbol"></ion-icon>
+					</ion-item>
+
+					<p class="error m-0-auto" col-12 ion-text color="danger" *ngIf="profileForm.controls['password'].hasError('required') && profileForm.controls['password'].touched && !profileForm.controls['password'].hasFocus">Password
+						field is required.</p>
+					<p class="error m-0-auto" col-12 ion-text color="danger" *ngIf="profileForm.controls['password'].hasError('pattern') && profileForm.controls['password'].touched && !profileForm.controls['password'].hasFocus">The
+						password must contain minimum 8 characters, at least 1 uppercase letter, 1 lowercase letter, 1 number and 1
+						special character ({{allowed_symbol}}).
+					</p>
+					<p class="error m-0-auto" col-12 ion-text color="danger" *ngIf="!is_previous_password">{{is_previous_password_msg}}</p>
+
+					<ion-label stacked>RE-TYPE NEW PASSWORD</ion-label>
+					<ion-item>
+						<ion-input formControlName="confirm_password" (focus)="isTouched('confirm_password',true)" (focusout)="isTouched('confirm_password',false)"
+						 id="confirm_password" type="password" [class.invalid]="!profileForm.controls.confirm_password.valid && (profileForm.controls.confirm_password.dirty)"></ion-input>
+						<ion-icon name="checkmark" item-right color="green" *ngIf="profileForm.controls['confirm_password'].touched && (!profileForm.hasError('mismatchedPasswords') && profileForm.controls.confirm_password.valid && !isNotAllowedSymbol)"></ion-icon>
+					</ion-item>
+					<span class="gray-text addtional-text">To change your password enter the new password again</span>
+					<p class="error m-0-auto" col-12 ion-text color="danger" *ngIf="profileForm.hasError('mismatchedPasswords') && profileForm.controls.confirm_password.valid && (!profileForm.controls['confirm_password'].hasFocus && !profileForm.controls['password'].hasFocus)">
+						Please enter a valid confirm password.
+					</p>
+					<p class="error m-0-auto" col-12 ion-text color="danger" *ngIf="profileForm.controls['confirm_password'].hasError('required') && profileForm.controls['confirm_password'].touched && !profileForm.controls['confirm_password'].hasFocus">Confirm
+						password field is required.</p>
+				</ion-row>
+				<div padding-top text-center margin-top>
+					<button ion-button col-12 round color="primary" [disabled]="!(profileForm.valid && is_unique_email && is_unique_username && is_current_password && is_previous_password)">Update
+						details</button>
+				</div>
+				<div text-center>
+					<button ion-button col-12 round type="button" color="dark" (click)="logout()">sign out</button>
+				</div>
+
+			</form>
+		</div>
+
+	</section>
+</ion-content>
+<div class="my-overlay" padding [hidden]="!overlayHidden">
+	<div class="overlay-container">
+		<div class="overlay-bg">
+			<div class="cancel-btn">
+				<a href="javascript:void(0)" (click)="hideOverlay()"><ion-icon name="ios-close-outline"  class="icon icon-md ion-ios-close-outline item-icon" aria-label="close outline"></ion-icon></a>
+			</div>
+			<div>
+				<div class="text-heading">
+				<h1>Men</h1>
+				</div>
+				<div class="img-bg" *ngFor="let profileImage of profileMenPics;">
+					<span (click)="selectImage(profileImage.src)"><img src="assets/images/profile/{{profileImage.src}}" alt="{{profileImage.title}}"></span>
+				</div>
+				<div class="text-heading"><h1>Women</h1></div>
+				<div class="img-bg" *ngFor="let profileWmImage of profileWomenPics;">
+					<span (click)="selectImage(profileWmImage.src)"><img src="assets/images/profile/{{profileWmImage.src}}" alt="{{profileWmImage.title}}"></span>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

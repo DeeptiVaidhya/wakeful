@@ -1,0 +1,155 @@
+page-profile {
+	#large_circle.circle-large {
+		width: 100px;
+		height: 100px;
+		font-size: 64px;
+		line-height: 11rem;
+	}
+
+	#small_circle.circle-large {
+		width: 70px;
+		height: 70px;
+		font-size: 46px;
+		line-height: 8rem;
+		float: left;
+		text-align: center;
+	}
+
+	.icon-circle-outline {
+		color: #fff;
+		margin: 0 auto;
+		border-radius: 50%;
+	}
+
+	.bg-primary {
+		background: color($colors, primary);
+		border: color($colors, primary);
+	}
+
+	.bg-secondary {
+		background: color($colors, secondary);
+		border: color($colors, secondary);
+	}
+
+	.bg-danger {
+		background: color($colors, danger);
+		border: color($colors, danger);
+	}
+
+	.bg-blue {
+		background: color($colors, dashbg-blue);
+		border: color($colors, dashbg-blue);
+	}
+
+	.bg-yellow {
+		background: color($colors, dashbg-yellow);
+		border: color($colors, dashbg-yellow);
+	}
+
+	.bg-pink {
+		background: color($colors, dashbg-pink);
+		border: color($colors, dashbg-pink);
+	}
+
+	.round-image-big {
+		border-radius: 50%;
+		height: 100px;
+		width: 100px;
+	}
+
+	.round-image-small {
+		border-radius: 50%;
+		height: 70px;
+		width: 70px;
+	}
+
+	.browse-link {
+		font-weight: 900;
+		color: color($colors, primary);
+		display: inline-block;
+		padding-top: 18px;
+	}
+
+	.my-overlay {
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		background: rgba(0, 0, 0, 0.7);
+		z-index: 20;
+		top: 0;
+		left: 0;
+		overflow: auto;
+	}
+	.overlay-container{
+		float: left;
+		width:100%;
+		position: relative;
+	}
+	.overlay-bg {
+		display: table;
+		width: 70%;
+		background: #fff;
+		margin: 0 auto;
+	}
+	.overlay-bg .img-bg {
+		width: 16.6%;
+		float: left;
+		padding: 20px;
+		display: inline;
+		text-align: center;
+	}
+	.overlay-bg .img-bg img{
+		max-width: 100%;
+	}
+	.cancel-btn{
+		float:right;
+		padding: 0 20px;
+		width:100%; 
+		text-align: right;
+	}
+	.cancel-btn a{
+		font-size: 42px;
+	}
+	.text-heading{
+		width: 100%;
+		float: left;
+		padding: 15px;
+		text-align: center;
+		background-color: #eaeff5;
+	}
+	.text-heading h1 {
+		margin: 0;
+	}
+
+	@media (max-width:1199px){
+	.overlay-bg .img-bg {
+			width: 20%;
+			float: left;
+			padding: 10px;
+			display: inline;
+		}
+	}
+	@media (max-width:767px){
+		.overlay-bg {
+			display: inline-block;
+			width: 100%;
+			background: #fff;
+			margin: 0 auto;
+			float: left;
+		}
+		.overlay-bg .img-bg {
+			width: 25%;
+			float: left;
+			padding: 10px;
+			display: inline;
+		}
+	}
+	@media (max-width:575px){
+		.overlay-bg .img-bg {
+			width: 33%;
+			float: left;
+			padding: 10px;
+			display: inline;
+		}
+	}
+}

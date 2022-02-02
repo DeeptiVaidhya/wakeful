@@ -1,0 +1,141 @@
+<ion-content>
+	<section class="section-0">
+		<div class="">
+			<ion-navbar>
+				<span text-center float-left>
+					<img class="center-logo" src='assets/images/full_logo.png' alt="Wakeful" />
+				</span>
+				<a menuToggle end class="menu-btn">
+					<ion-icon name="im-menu"></ion-icon>
+				</a>
+			</ion-navbar>
+			<!-- <div col-lg-6 col-12 class="m-0-auto" text-center>
+				<h1 class="home-heading">Welcome to Wakeful</h1>
+				<p class="gray-text home-text">Learn to be wakeful and treat the moments of your life as if they really mattered</p>
+				<div text-center>
+					<button ion-button col-9 round class="submit-btn btn-bg-color" color="dark" (click)="signIn()" >SIGN IN</button>
+				</div>
+			</div> -->
+		</div>
+	</section>
+	<section class="section-1">
+		<div class="w-1024">			
+			<div col-lg-6 col-12 class="m-0-auto" text-center>
+				<h1 class="home-heading">Welcome to Wakeful</h1>
+				<p class="gray-text home-text">Learn to be wakeful and treat the moments of your life as if they really mattered</p>
+				<!-- <div text-center padding-top>
+					<button ion-button col-9 round type="button" color="primary" [navPush]="signUpPage">SIGN UP</button>
+				</div> -->
+				<div text-center>
+					<button ion-button col-9 round class="submit-btn btn-bg-color" color="dark" (click)="signIn()" >SIGN IN</button>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="section-2">
+		<div class="w-1024">
+			<ion-row padding-top>
+				<div col-lg-6 col-md-6 col-12 class="left">
+					<h3>Mindfully developed to develop your mind...fully!</h3>
+					<ul>
+						<li>Created by mindfulness researchers, teachers and practitioners</li>
+						<li>Self-directed, interative content</li>
+						<li>Evidence-based exercises and teachings</li>
+						<li>Tailored content delivery for different populations and needs</li>
+					</ul>
+				</div>
+				<div col-lg-6 col-md-6 col-12 class="right">
+					<div class="right-mobile-img">
+						<img alt="section right mobile" src="assets/images/section_right_mobile.png">
+					</div>
+				</div>
+			</ion-row>
+		</div>
+	</section>
+	<section class="section-3">
+		<div class="w-1024 section-center">
+			<ion-row text-center justify-content-center>
+				<div col-lg-12 col-md-12 col-12>
+					<p>
+						<strong>“Waking up this morning, I smile. Twenty-four brand new hours are before me. I vow to live fully in each moment and
+							to look at all beings with eyes of compassion.” - Thich Nhat Hanh</strong>
+					</p>
+					<h2>Wanna Wake Up?</h2>
+					<h4 padding-bottom>Let’s set in motion a whole new way of living...wakefully.</h4>
+					<button ion-button round outline class="btn-outline-dark" [navPush]="signUpPage">let’s get started</button>
+				</div>
+			</ion-row>
+		</div>
+	</section>
+	<section class="section-4">
+		<div class="w-1024 section-center">
+			<ion-row text-center justify-content-center>
+				<div col-lg-12 col-md-12 col-12>
+					<h2>Don’t have time?</h2>
+					<h4 padding-bottom>
+						Don’t worry, you’re not alone. Nobody does. The good news is that
+						<i>Wakeful</i> can be easily integrated into your day and schedule, wherever you are, whenever you want.
+					</h4>
+					<button ion-button round outline class="btn-outline-dark" [navPush]="signUpPage">let’s make time</button>
+				</div>
+			</ion-row>
+		</div>
+	</section>
+	<section class="section-5">
+		<div class="w-1024 section-center">
+			<ion-row text-center justify-content-center>
+				<div col-lg-12 col-md-12 col-12>
+					<h2 class="c-white">Not the meditating type?</h2>
+					<h4 padding-bottom class="c-white">
+						We’re not saying it’s easy, but if you give this a try we bet you’ll come to agree that meditation is not what you think!
+					</h4>
+					<button ion-button round outline class="btn-outline-white" [navPush]="signUpPage">Let’s give it a try</button>
+				</div>
+			</ion-row>
+		</div>
+	</section>
+	<section class="section-6">
+		<div class="w-1024 section-center">
+			<ion-row text-center justify-content-center>
+				<div col-lg-8 col-md-9 col-12 class="slider-container" padding-top>
+					<ion-slides pager="true" #slides>
+						<ion-slide>
+							<img class="round-image" src="assets/images/mindful.png" />
+							<p class="slide-text text-center f-22">
+								<ion-icon style="color:#af96c1" class="icon-flipped" ios="ios-quote" md="md-quote" float-left></ion-icon>
+								What a gift it is to really notice and savor the moments of my life. Even the unpleasant ones. I can’t help but feel grateful
+								for everything.
+								<ion-icon style="color:#af96c1" ios="ios-quote" md="md-quote" float-right></ion-icon>
+							</p>
+
+							<p class="t-uper testi-name f-16" padding-bottom padding-top text-center>- MINDFUL2273</p>
+						</ion-slide>
+						<ion-slide>
+							<img class="round-image" src="assets/images/john.png" />
+							<p class="slide-text text-center f-22">
+								<ion-icon style="color:#af96c1" class="icon-flipped" ios="ios-quote" md="md-quote" float-left></ion-icon>
+								I know being mindful is more than feeling relaxed, but when I pay attention to my life in this way, I slow down, and I can’t help feeling calmer and more relaxed as a result.
+								<ion-icon style="color:#af96c1" ios="ios-quote" md="md-quote" float-right></ion-icon>
+							</p>
+
+							<p class="t-uper testi-name f-16" padding-bottom padding-top text-center>- John Thompson</p>
+						</ion-slide>
+						<ion-slide>
+							<img class="round-image" src="assets/images/jennifer.png" />
+							<p class="slide-text text-center f-22">
+								<ion-icon style="color:#af96c1" class="icon-flipped" ios="ios-quote" md="md-quote" float-left></ion-icon>
+								I learn best by doing, and this class is all about that! Now I can’t not be mindful to my life!
+								<ion-icon style="color:#af96c1" ios="ios-quote" md="md-quote" float-right></ion-icon>
+							</p>
+
+							<p class="t-uper testi-name f-16" padding-bottom padding-top text-center>- jennifer harris</p>
+						</ion-slide>
+					</ion-slides>
+					<div class="swiper-button-prev" (click)="slides.slidePrev()"></div>
+					<div class="swiper-button-next" (click)="slides.slideNext()"></div>
+				</div>
+			</ion-row>
+		</div>
+	</section>
+	<static-footer></static-footer>
+</ion-content>

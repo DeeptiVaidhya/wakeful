@@ -1,0 +1,41 @@
+page-class {
+	ion-list ion-item.item{
+		opacity: 0.8;
+	}	
+
+	.label-md {
+        margin: 20px 8px 20px 0;
+    }
+
+	img {
+		cursor: pointer !important;
+	}
+
+	@media (max-width: 480px) {
+		.scroll-content {
+			padding: 20px !important;
+		}
+	}
+
+	// #mainVideo {
+	// 	position: fixed;
+	// 	top: 50%;
+	// 	left: 50%;
+	// 	min-width: 100%;
+	// 	min-height: 100%;
+	// 	width: auto;
+	// 	height: auto;
+	// 	z-index: -100;
+	// 	transform: translateX(-50%) translateY(-50%);
+	//   } 
+
+	// @media (max-width: 768px) {
+	// 	ion-list.btn-list {
+	// 		padding: 0;
+	// 		margin-top: 50px !important;
+	// 	}
+	// }
+	
+}
+
+

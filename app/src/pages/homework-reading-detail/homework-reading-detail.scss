@@ -1,0 +1,67 @@
+page-homework-reading-detail {
+	.h-reading-detail-bg{
+		background: #fff;
+		padding: 30px;
+		margin-bottom: 1px;
+		font-size: 1.6rem;
+		color: #707070;
+		font-weight: 300;
+		line-height: 2.4rem;
+
+	}
+	.h-reading-detail h1{
+		font-size: 5.2rem;
+		color: #4a3957;
+		font-weight: 900;
+	}
+	.h-reading-detail h2{
+		font-size: 3.2rem;
+		color: #4a3957;
+		font-weight: 900;
+	}
+	.h-reading-detail h3{
+		font-size: 2.6rem;
+		color: #4a3957;
+		font-weight: 900;
+	} 
+	.h-reading-detail p{
+		font-size: 1.6rem;
+		color: #707070;
+		font-weight: 300;
+		line-height: 2.4rem;
+	}
+	.f-18{
+		font-size: 1.8rem !important;
+	}
+	ul {
+		list-style: none;
+		padding: 15px 20px ;
+		margin: 0;
+	}
+
+	li {
+		font-size: 1.6rem;
+		line-height: 2.6rem;
+		display: flex;
+		color: #707070;
+		font-weight: 300;
+		margin-bottom: 10px;
+	}
+
+	li::before {
+		content: "• ";
+		color: #c5bace;
+		font-size: 5rem;
+		vertical-align: top;
+		padding-right: 30px;
+		line-height: 3.5rem;
+	}
+
+	@media (max-width:767px) {
+		
+		.h-reading-detail h1{
+			font-size: 2.8rem;
+		}
+	}
+
+}

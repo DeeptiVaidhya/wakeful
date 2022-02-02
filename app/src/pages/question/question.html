@@ -1,0 +1,52 @@
+<!--
+  Generated template for the QuestionPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+	<ion-navbar>
+		<ion-title text-center> {{ page_info.title }} </ion-title>
+		<a menuToggle end>
+			<ion-icon name="im-menu"></ion-icon>
+		</a>
+	</ion-navbar>
+</ion-header>
+<ion-content text-center [style.backgroundImage]="'url('+bg_image+')'">
+	<section class="w-1024 v-align-center" padding-top padding-bottom>
+		<form [formGroup]="answerForm" (ngSubmit)="nextPage()" autocomplete="off" class="wp-100">
+			<div col-lg-8 col-12 class="m-0-auto">
+				<div text-center padding>
+					<ion-col col-4 col-sm-3 col-md-2>
+						<ion-icon [style.color]="page_detail.question_color" name="im-brandbubble" class="question-no">
+							<span>{{ page_detail.question_number }}</span>
+						</ion-icon>
+					</ion-col>
+				</div>
+				<ion-row>
+					<ion-col col-12>
+						<h3 class="gray-text f-26 l-height-35">
+							<strong>{{ page_detail.question_text }}</strong>
+						</h3>
+					</ion-col>
+					<ion-col col-12>
+						<ion-textarea text-center padding formControlName="answer" id="answer" type="text" [class.invalid]="!answerForm.controls.answer.valid && (answerForm.controls.answer.dirty)"
+						 rows=10 placeholder="Your answer goes here"></ion-textarea>
+						<p class="error m-0-auto" col-12 ion-text color="danger" *ngIf="answerForm.controls['answer'].hasError('required') && answerForm.controls['answer'].touched && !answerForm.controls['answer'].hasFocus">Answer field is required.</p>
+						<p class="error m-0-auto" col-12 ion-text color="danger" *ngIf="answerForm.controls['answer'].hasError('pattern') && answerForm.controls['answer'].touched && !answerForm.controls['answer'].hasFocus">Please enter valid answer.</p>
+					</ion-col>
+				</ion-row>
+				<div text-center col-12 col-lg-7 col-md-7 col-sm-8 class="m-0-auto">
+					<button ion-button col-12 round color="primary" [disabled]="disableButton">{{ page_detail.button_text }}</button>
+				</div>
+			</div>
+		</form>
+	</section>
+</ion-content>
+<ion-footer class="progress-wrapper">
+	<div class="w-1024">
+		<div col-md-12 col-sm-12 col-12 class="m-0-auto">
+			<progress-bar [progress]="progress"></progress-bar>
+		</div>
+	</div>
+</ion-footer>

@@ -1,0 +1,29 @@
+<!-- Generated template for the ModalComponent component -->
+<ion-content>
+   
+    <section class="modal-content" [ngStyle]="{'background': bgColor, 'height': height}" text-center>
+        <ion-buttons end>
+        </ion-buttons>
+        <div class="main-model">
+            <div>
+                <h1 >{{bgColor}}</h1>
+                <h1 class="topic_title">{{title}}</h1>
+                <a href="javascript:void(0);" class="modal-close" (click)="dismiss()">
+                <ion-icon ios="ios-close" md="md-close"></ion-icon>
+            </a>
+            </div>
+            <h5>
+                <div [innerHTML]="body" class="f-26 topic_text"></div>
+            </h5>
+
+            <div margin-top col-lg-8 col-12 class="m-0-auto">
+                <div text-center col-lg-7 col-md-7 col-sm-8 class="m-0-auto">
+                    <button ion-button round class="btn-close" type="button" color="primary" (click)="dismiss()" >CLOSE</button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    
+</ion-content>

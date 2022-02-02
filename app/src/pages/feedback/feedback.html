@@ -1,0 +1,71 @@
+<!--
+  Generated template for the FeedbackPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+--> 
+
+<ion-header>
+    <back-static-header></back-static-header>
+</ion-header>
+
+<ion-content>
+    <!-- <section class="bg-pink">
+        <ion-row justify-content-center>
+            <ion-col>
+                <h1 class="static-headings">Feedback</h1>
+            </ion-col>
+        </ion-row>
+    </section> --> 
+    <ion-row>
+        <div class="head">
+            <h1>Feedback</h1>
+        </div>
+    </ion-row>
+    <section class="w-750">
+        
+        <ion-row>
+            <ion-grid text-center col-lg-12 col-md-12 col-12>
+                <p class="gray-text pera">We would love to hear about your experiences with the Wakeful™ tool, so please let us know what you think at any point during the course by answering the questions below.</p>
+                <div *ngIf="questionList?.length > 0" padding-bottom margin-bottom>
+                    <form [formGroup]="feedbackForm" autocomplete="off" (ngSubmit)="save()">
+                        <ion-row *ngFor="let question of questionList; let index=index">
+                            <ion-col col-12 class="sub-heading">
+                                <strong>{{question.question}}</strong>
+                            </ion-col>
+                            <ion-col col-12>
+                                <textarea name="feedback_answers[{{index}}]" tabindex="{{index}}" text-center rows=10 padding placeholder="Your answer goes here" class="text-input"></textarea>
+                                <p class="error m-0-auto" col-12 ion-text color="danger">
+                                    {{ error['feedback_answers['+index+']'] }}</p>
+                                <input type="hidden" name="question_id[{{index}}]" value="{{question.question_id}}">
+                                <!-- <input type="hidden" name="course_id[{{index}}]" value="{{question.courses_id}}"> -->
+                            </ion-col>
+                        </ion-row>
+                        <div col-lg-6 col-md-6 col-12 class="m-0-auto">
+                            <button ion-button col-12 round color="primary">Submit</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- <ion-row>
+                    <ion-col col-12 margin-bottom margin-top class="sub-heading">
+                        Have you found any aspects of the Wakeful tool to be less helpful? If so, how?
+                    </ion-col>
+                    <ion-col col-12>
+                        <ion-textarea tabindex="2" text-center rows=10 padding placeholder="Your answer goes here"></ion-textarea>
+                    </ion-col>
+                </ion-row>
+
+                <ion-row>
+                    <ion-col col-12 margin-bottom margin-top class="sub-heading">
+                        If you want to give any additional feedback about the Wakeful tool or its content, please share it with us in the box below.
+                    </ion-col>
+                    <ion-col col-12>
+                        <ion-textarea tabindex="3" text-center rows=10 padding placeholder="Your answer goes here"></ion-textarea>
+                    </ion-col>
+                </ion-row> -->
+            </ion-grid>
+        </ion-row>    
+    </section>
+    <static-footer></static-footer>
+</ion-content>

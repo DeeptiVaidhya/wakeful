@@ -1,0 +1,19 @@
+<ion-tabs #imTabs tabsPlacement="bottom" [ngClass]="{'hidden': hiddenTabs}">
+    <ion-tab [root]="tab1Root" (ionSelect)="check_login()" tabTitle="Course" tabIcon="im-class"></ion-tab>
+    <ion-tab [root]="tab2Root" (ionSelect)="check_login()" tabTitle="Dashboard" tabIcon="im-dashboard"></ion-tab>     
+    <ion-tab [root]="tab3Root" (ionSelect)="check_login()" tabTitle="Review" tabIcon="im-review"></ion-tab>
+    <ion-tab [root]="tab4Root" (ionSelect)="check_login()" tabTitle="Community" tabIcon="im-community" [enabled]="tabshow" ></ion-tab>
+    <ion-tab [root]="tab5Root" (ionSelect)="check_login()" tabTitle="Practice" tabIcon="im-padmasana"></ion-tab>
+</ion-tabs>
+
+<!-- <ion-tabs #imTabs tabsPlacement="bottom" [ngClass]="{'hidden': hiddenTabs}">
+    <ion-tab [root]="tab1Root" (ionSelect)="check_login()" tabTitle="Course" tabIcon="im-class" [enabled]="tabshow"></ion-tab>
+    <ion-tab [root]="tab2Root" (ionSelect)="check_login()" tabTitle="Dashboard" tabIcon="im-dashboard"></ion-tab>
+    
+    <ion-tab [root]="tab3Root" (ionSelect)="check_login()" tabTitle="Review" tabIcon="im-review"></ion-tab>
+    <ion-tab [root]="tab4Root" (ionSelect)="check_login()" tabTitle="Community" tabIcon="im-community" [enabled]="tabshow" ></ion-tab>
+    <ion-tab [root]="tab5Root" (ionSelect)="check_login()" tabTitle="Practice" tabIcon="im-padmasana"></ion-tab>
+</ion-tabs> -->
+
+
+

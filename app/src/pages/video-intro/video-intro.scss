@@ -1,0 +1,32 @@
+page-video-intro {
+    //   .video-intro-bg {
+           // background-image: url("../assets/images/video_intro_bg.jpg");
+           // background-repeat: no-repeat;
+           // -ms-background-size: cover;
+           // -o-background-size: cover;
+           // -moz-background-size: cover;
+           // -webkit-background-size: cover;
+           // background-size: cover;
+    //   }
+       // .intro-content {
+       //     padding-top: 10%;
+       // }
+       .toolbar-title-md,
+       .toolbar-title-ios {
+           margin-top: 0;
+       }
+       .btn-play {
+           font-size: 7rem;
+           top: 3.5rem;
+           left: 1.5rem;
+           cursor: pointer;
+       }
+       .c-white {
+           color: #fff;
+       }
+       @media (max-width:767px) {
+           .video-intro-text h1 {
+               font-size: 2.6rem;
+           }
+       }
+   }

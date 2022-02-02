@@ -1,0 +1,99 @@
+<!--
+  Generated template for the ProfilePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<!--<ion-header>
+
+    <ion-navbar>
+        <button ion-button icon-only>
+            <ion-icon name="logo"></ion-icon>
+        </button>
+
+        <a menuToggle end>
+            <ion-icon name="im-menu"></ion-icon>
+        </a>
+    </ion-navbar>
+padding-bottom margin
+</ion-header>-->
+<ion-header>
+    <back-static-header></back-static-header>
+</ion-header>
+
+
+
+<ion-content>
+   <!--  <section class="bg-pink">
+        <ion-row justify-content-center>
+            <ion-col>
+                <h1 class="static-headings">FAQs</h1>
+            </ion-col>
+        </ion-row>
+    </section> -->
+    <ion-row>
+        <div class="head">
+            <h1>Frequently Asked Questions</h1>   
+        </div>
+    </ion-row>
+    <section class="w-900 faqs">
+        <ion-row justify-content-center padding-bottom margin-bottom>
+            <ion-grid col-lg-12 col-md-10 col-12>
+                <ion-list>
+                    <ion-item padding *ngFor="let d of data" (click)="toggleDetails(d)" text-center>
+                        <h1 class="sub-heading"><strong>{{d.title}}</strong>
+                            <ion-icon class="c-pink right" item-right [name]="d.icon"></ion-icon>
+                        </h1>
+                        <div padding-top *ngIf="d.showDetails" class="toggle-cont gray-text f-14">{{d.desc}}</div>
+                    </ion-item>
+                </ion-list>
+                <!-- <ion-row>
+                <ion-col col-12>
+                    <h1 class="sub-heading"><strong>What is Mindfulness?</strong></h1>
+                </ion-col>
+                <ion-col class="gray-text ">
+                    While many definitions exist, a basic description of mindfulness is simply “paying attention to the present moment without judgment.” This entails training our attention to notice what is happening from moment-to-moment, and to observe whatever is arising
+                    in our thoughts, emotions, and physical sensations with openness, curiosity, and non-judgment.,
+                </ion-col>
+
+            </ion-row>
+            <ion-row padding-top margin-top>
+                <ion-col col-12 class="gray-text">
+                    <h1 class="sub-heading"><strong>What types of activities will I complete in the Wakeful™ tool?</strong></h1>
+                </ion-col>
+                <ion-col class="gray-text">
+                    While many definitions exist, a basic description of mindfulness is simply “paying attention to the present moment without judgment.” This entails training our attention to notice what is happening from moment-to-moment, and to observe whatever is arising
+                    in our thoughts, emotions, and physical sensations with openness, curiosity, and non-judgment.
+                </ion-col>
+            </ion-row>
+            <ion-row padding-top margin-top>
+                <ion-col col-12 class="gray-text">
+                    <h1 class="sub-heading"><strong>How long does the course take?</strong></h1>
+                </ion-col>
+
+                <ion-col class="gray-text">
+                    Throughout this course, you will learn different meditation and yoga practices, as well as other exercises designed to teach you fundational skills of mindfulness.
+                </ion-col>
+            </ion-row>
+            <ion-row padding-top margin-top>
+                <ion-col col-12 class="gray-text">
+                    <h1 class="sub-heading"><strong>Is there homework?</strong></h1>
+                </ion-col>
+
+                <ion-col class="gray-text">
+                    Throughout this course, you will learn different meditation and yoga practices, as well as other exercises designed to teach you fundational skills of mindfulness.
+                </ion-col>
+            </ion-row>
+            <ion-row padding-top margin-top>
+                <ion-col col-12 class="gray-text">
+                    <h1 class="sub-heading"><strong>How do I know if this course is for me?</strong></h1>
+                </ion-col>
+                <ion-col class="gray-text">
+                    Throughout this course, you will learn different meditation and yoga practices, as well as other exercises designed to teach you fundational skills of mindfulness.
+                </ion-col>
+            </ion-row> -->
+            </ion-grid>
+        </ion-row>
+    </section>
+    <static-footer></static-footer>
+</ion-content>

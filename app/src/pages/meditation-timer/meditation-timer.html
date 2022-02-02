@@ -1,0 +1,27 @@
+
+<ion-header>
+	<app-header [title]="title"></app-header>
+</ion-header>
+ 
+<ion-content>
+	<section  margin-top class="w-1024">
+
+		<ion-list inset class="btn-list mt-70">
+            <p class="text-light-gray mob-p-l-r" text-center>The practices below can support your growth throughout this course.</p>			
+        </ion-list>	
+		
+		<button ion-button col-6 full (click)="showDetail()" round type="button" class="prepare" > <img src="assets/images/timer.png" width="20px"> &nbsp; Meditation timer</button>
+		<div>
+			<ion-row class="tile_list" *ngFor="let homework of homeworkList; let i=index" (click)="homeworkDetailPage(homework.category_id)" [ngClass]="{disabledNoOfCasesDiv: isDisabled}">
+				<ion-col>
+					<ion-item color="primary" text-center style="background: #FFF">
+						<span class="f_18">{{ homework.title }}</span>
+					</ion-item>
+					<div>
+						<img src="{{ homework.url }}" />
+					</div>
+				</ion-col>
+			</ion-row>			
+		</div> 
+    </section>
+</ion-content>

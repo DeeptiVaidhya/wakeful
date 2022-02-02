@@ -1,0 +1,24 @@
+<ion-menu [content]="imhereNav" persistent="true" side="right">
+    <ion-header>
+        <ion-item>
+            <ion-icon item-right menuClose name="ios-close-outline" style="cursor:pointer"></ion-icon>
+        </ion-item>
+    </ion-header>
+
+    <ion-content>
+        <ion-list class="menu-list" padding-top>
+            <button menuClose ion-item *ngIf="isLoggedIn" (click)="notification()"><img src='assets/images/notification.png' width="22px" style="margin-right: 5px;" /> Notification <span *ngIf='notificationCount > 0' class="notification">{{notificationCount > 0 ? notificationCount : 0 }}</span></button>
+            <button menuClose ion-item (click)="overview()"><ion-icon name="ios-list-box-outline"></ion-icon>FAQs</button>
+            <button menuClose ion-item (click)="about()"><ion-icon name="ios-information-circle-outline"></ion-icon>About wakeful</button>
+
+            <button *ngIf="isLoggedIn" menuClose ion-item (click)="feedback()"><ion-icon name="ios-chatboxes-outline"></ion-icon>Feedback</button>
+            <button menuClose ion-item (click)="contact()"><ion-icon name="ios-call-outline"></ion-icon>Contact us</button>
+
+            <button *ngIf="isLoggedIn" menuClose ion-item (click)="profile()"><ion-icon name="ios-person-outline"></ion-icon>Profile</button>
+            <button *ngIf="isLoggedIn" menuClose ion-item (click)="logout()"><ion-icon name="ios-exit-outline"></ion-icon>Logout</button>
+        </ion-list>
+    </ion-content>
+
+</ion-menu>
+
+<ion-nav [root]="rootPage" #imhereNav></ion-nav>

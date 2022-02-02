@@ -1,0 +1,222 @@
+<!--
+  Generated template for the ProfilePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <app-header [title]="Community"></app-header>
+</ion-header>
+ 
+<ion-content>
+    <section class="w-1024">
+        <div>
+            <p (click)="back()" class="back-btn"><img src='assets/images/arrow.svg' width="13px" style="vertical-align: inherit;" /> BACK TO NOTIFICATION</p>
+        </div>
+        <div *ngIf="communityList.length > 0">
+            <ion-card class="card-bg" *ngFor="let community of communityList; let commIndex=index">
+                <ion-card-content class="community-user">
+                     <ion-row>
+                        <h1>
+                            Q: {{community.question_text}}
+                        </h1>
+                        <hr />
+                    </ion-row>
+                    
+                    <ion-row padding-top>
+                        <div col-lg-12 col-sm-12 col-12>
+                            <div class="commenter-img">
+    							<div *ngIf="community.discussion_list[0]?.profile_picture != ''; else smallelseBlockFirst">
+                                    <img class="round-image-small" src="assets/images/profile/{{community.discussion_list[0]?.profile_picture}}" alt="{{ community.discussion_list[0]?.profile_picture }}" />
+    							</div>
+    							<ng-template #smallelseBlockFirst>
+                                    <div id="small_circle" [ngClass]="redColor.indexOf(community.discussion_list[0]?.username.charAt(0).toUpperCase())>-1 ? 'avatar-red' : orangeColor.indexOf(community.discussion_list[0]?.username.charAt(0).toUpperCase())>-1?'avatar-orange' : yellowColor.indexOf(community.discussion_list[0]?.username.charAt(0).toUpperCase())>-1?'avatar-yellow' : greenColor.indexOf(community.discussion_list[0]?.username.charAt(0).toUpperCase())>-1?'avatar-green':blueColor.indexOf(community.discussion_list[0]?.username.charAt(0).toUpperCase())>-1?'avatar-sky-blue' :'avatar-purple'" class="circle-large icon-circle-outline" data-profile_initials>{{ community.discussion_list[0]?.username.charAt(0).toUpperCase() }}</div>
+                                </ng-template>
+                                
+    						</div>
+                            <div class="posted-text">
+                                <p>
+                                    <strong>{{community.discussion_list[0]?.username}}</strong>
+                                </p>
+                            </div>
+                        </div>
+                    </ion-row>
+                    <!-- <hr /> -->
+
+                    <ion-row padding-top padding-bottom class="comment-icons three-center">
+                        <!-- <div col-lg-3 col-sm-3 col-4 class="icon-center" padding-top margin-top>
+    						<a href="javascript:void(0)" margin-top class="d-block" (click)="commentClick()">
+    							<ion-icon class="reply-icon" name="im-reply"></ion-icon>
+    							<span class="f-big">Reply</span>
+    						</a>
+    					</div> -->
+    					<div class="icon-center">
+                            <div col-12><p class="community-text">{{community.discussion_list[0]?.answer.length > strLength && !ContinueReading[commIndex] ? community.discussion_list[0]?.answer.substr(0, strLength)+'...' : community.discussion_list[0]?.answer}} </p></div>
+    						
+    						<div col-12 *ngIf="community.discussion_list[0]?.answer.length > strLength && !ContinueReading[commIndex]">
+                                    <p class="continue-reading" (click)="continueReading(commIndex)">Continue Reading...</p></div>
+    						<div class="community-three mobile-icons">
+    							<div class="icon-center">
+    								<a class="active" href="javascript:void(0)">
+    									<ion-icon name="im-inspired"></ion-icon>
+    								</a>
+    								<span class="counter-status">{{community.discussion_list[0]?.post_rply.inspired}}</span>
+    							</div>
+    							<div class="icon-center">
+    								<a class="active" href="javascript:void(0)" >
+    									<ion-icon name="im-understood"></ion-icon>
+    								</a>
+    								<span class="counter-status">{{community.discussion_list[0]?.post_rply.understood}}</span>
+    							</div>
+    							<div class="icon-center">
+    								<a class="active" href="javascript:void(0)">
+    									<ion-icon name="im-grateful"></ion-icon>
+    								</a>
+    								<span class="counter-status">{{community.discussion_list[0]?.post_rply.grateful}}</span>
+    							</div>
+    						</div>
+    					</div>
+                        <div class="w-100 comment-section">
+                            <div class="three-icons-list">
+                                <div class="makes-feel-comment">
+                                    <p class="comment-texts">This comment makes me feel...</p>
+                                </div>
+                                <div class="inspire">
+                                    <a [ngClass]="{'active': community.discussion_list[0]?.status=='INSPIRED'}" class="active" href="javascript:void(0)" (click)="setCommentStatus('INSPIRED', community.discussion_list[0]?.answer_id, community.id)">
+                                    <ion-icon name="im-inspired"></ion-icon>
+                                    <span>INSPIRED</span>
+                                </a>
+                                </div>
+                                <div class="understood">
+                                    <a [ngClass]="{'active': community.discussion_list[0]?.status=='UNDERSTOOD'}" class="active" href="javascript:void(0)" (click)="setCommentStatus('UNDERSTOOD', community.discussion_list[0]?.answer_id, community.id)">
+                                    <ion-icon name="im-understood"></ion-icon>
+                                    <span>UNDERSTOOD</span>
+                                </a>
+                                </div>
+                                <div class="grateful">
+                                    <a [ngClass]="{'active': community.discussion_list[0]?.status=='GRATEFUL'}" href="javascript:void(0)" (click)="setCommentStatus('GRATEFUL', community.discussion_list[0]?.answer_id, community.id)">
+                                    <ion-icon name="im-grateful"></ion-icon>
+                                    <span>GRATEFUL</span>
+                                </a>
+                                </div>
+                            </div>
+                        </div> 
+                    </ion-row>
+                    <ion-row class="review-content">
+                        <div class="d-block" *ngIf="community.discussion_list[0]?.post_rply.data.length > 0">
+                            <!-- <div col-12><h4 class="view-head curser" *ngIf="!viewReplies[commIndex]" (click)="toggleReplies(commIndex)">View {{community.discussion_list[0]?.post_rply.data.length}} reply</h4></div> -->
+
+                            <div class="d-block curser" *ngIf="!viewPostReplies[commIndex] && community.discussion_list[0]?.post_rply.data.length > 3"><h4 class="view-head mb-15" (click)="togglePreviousReplies(commIndex)">View previous replies</h4></div>
+                            <!-- <div *ngIf="!!viewReplies[commIndex]"> -->
+
+                                <ion-row class="commenter-imges d-block main-block" *ngFor="let post_rply of community.discussion_list[0]?.post_rply.data;let postRplyIndex = index;">
+
+                                    <div class="d-block" *ngIf="!!viewPostReplies[commIndex] ? postRplyIndex < community.discussion_list[0]?.post_rply.data.length : postRplyIndex < 3">
+                                        <div class="add-bg d-block">
+                                            <div class="devide-text" attr.id="post-rply-{{post_rply.comment_id}}">
+                                            
+                                                <div class="reply-img" *ngIf="post_rply.profile_picture != ''; else smallelseBlockSec">
+                                                    <img class="round-image-small" src="assets/images/profile/{{post_rply.profile_picture}}" alt="{{ post_rply.profile_picture }}" />
+                                                </div>
+                
+                                                <ng-template class="more-reply" #smallelseBlockSec>
+                                                <div id="small_circle" [ngClass]="redColor.indexOf(post_rply.username.charAt(0).toUpperCase())>-1 ? 'avatar-red' : orangeColor.indexOf(post_rply.username.charAt(0).toUpperCase())>-1?'avatar-orange' : yellowColor.indexOf(post_rply.username.charAt(0).toUpperCase())>-1?'avatar-yellow' : greenColor.indexOf(post_rply.username.charAt(0).toUpperCase())>-1?'avatar-green':blueColor.indexOf(post_rply.username.charAt(0).toUpperCase())>-1?'avatar-sky-blue' :'avatar-purple'" class="more-rep text-bg-img circle-large icon-circle-outline " data-profile_initials>{{ post_rply.username.charAt(0).toUpperCase() }}</div>
+                                                </ng-template>
+                                                <div class="add-bg-color" (mouseover)="post_rply?.is_read == '0' ?makeRead(post_rply?.comment_id) : ''" [ngClass]="post_rply?.comment_id == comment_id && post_rply?.is_read == '0' ? 'dark-bg-gray' : 'light-gray' ">
+                                                    <h4 class="view-name">{{post_rply.username}}</h4>
+                                                    <p class="community-text">{{post_rply.comment.length > strPostLength && !ContinuePostReading[postRplyIndex] ? post_rply.comment.substr(0, strPostLength)+'...' : post_rply.comment}}    </p>
+                                                <p *ngIf="post_rply.comment.length > strPostLength && !ContinuePostReading[postRplyIndex]" (click)="continuePostReading(postRplyIndex)" class="continue-reading curser">Continue Reading...</p>
+                                                </div>
+                                        
+                                                <div class="revert" *ngIf="post_rply.replies.length">
+                                                    <div *ngIf="!viewSecondReplies[postRplyIndex]" (click)="toggleSecondReplies(postRplyIndex)" class="curser mb-15">
+                                                        <img src="assets/images/replay_icon.png" width="50px" class="rep-icon">
+                                                        <!-- <img src="assets/images/default-avatar.png" width="50px"> -->
+                                                        <div class="more-reply" *ngIf="post_rply.replies[0]?.profile_picture != ''; else smallelseBlock">
+                                                            <img class="round-image-small" src="assets/images/profile/{{post_rply.replies[0]?.profile_picture}}" alt="{{ post_rply.replies[0]?.profile_picture }}" />
+                                                        </div>
+                                                        <ng-template #smallelseBlock>
+                                                        <div class="more-reply">
+                                                            <div id="small_circle" [ngClass]="redColor.indexOf(post_rply.replies[0]?.username.charAt(0).toUpperCase())>-1 ? 'avatar-red' : orangeColor.indexOf(post_rply.replies[0]?.username.charAt(0).toUpperCase())>-1?'avatar-orange' : yellowColor.indexOf(post_rply.replies[0]?.username.charAt(0).toUpperCase())>-1?'avatar-yellow' : greenColor.indexOf(post_rply.replies[0]?.username.charAt(0).toUpperCase())>-1?'avatar-green':blueColor.indexOf(post_rply.replies[0]?.username.charAt(0).toUpperCase())>-1?'avatar-sky-blue' :'avatar-purple'" class="more-rep text-bg-img circle-large icon-circle-outline" data-profile_initials>{{ post_rply.replies[0]?.username.charAt(0).toUpperCase() }}</div>
+                                                        </div>
+                                                    </ng-template>
+                                                        <span>{{post_rply.replies[0]?.username}} replied. {{post_rply.replies.length}} more replies.</span>
+                                                    </div>
+                                                    <div *ngIf="!!viewSecondReplies[postRplyIndex]" class="second-reply">
+                                                    <div class="devide-text">
+                                                    <ion-row class="commenter-imges" *ngFor="let second_rply of post_rply.replies;let secRplyIndex = index;">
+                                                            <div class="add-bg">
+                                                                <div class="reply-img" *ngIf="second_rply.profile_picture != ''; else smallelseBlockThird">
+                                                                    <img src="assets/images/replay_icon.png" width="30px" class="rep-icon">
+                                                                    <img class="round-image-small" src="assets/images/profile/{{second_rply.profile_picture}}" alt="{{ second_rply.profile_picture }}" width="70px" height="70px"/>
+                                                                </div>
+                                                                <ng-template #smallelseBlockThird>
+                                                                    <div class="more-reply">
+                                                                        <img src="assets/images/replay_icon.png" width="30px" class="rep-icon"> 
+                                                                        <div id="small_circle" [ngClass]="redColor.indexOf(second_rply?.username.charAt(0).toUpperCase())>-1 ? 'avatar-red' : orangeColor.indexOf(second_rply?.username.charAt(0).toUpperCase())>-1?'avatar-orange' : yellowColor.indexOf(second_rply?.username.charAt(0).toUpperCase())>-1?'avatar-yellow' : greenColor.indexOf(second_rply?.username.charAt(0).toUpperCase())>-1?'avatar-green':blueColor.indexOf(second_rply?.username.charAt(0).toUpperCase())>-1?'avatar-sky-blue' :'avatar-purple'" class="more-rep text-bg-img circle-large icon-circle-outline" data-profile_initials>{{ second_rply.username.charAt(0).toUpperCase() }}</div>
+                                                                    </div>
+                                                                </ng-template>
+                                                                <div class="add-bg-color" (mouseover)="second_rply?.is_read == '0' ?makeRead(second_rply?.comment_id) : ''" [ngClass]="second_rply?.comment_id == comment_id && second_rply?.is_read == '0' ? 'dark-bg-gray' : 'light-gray' ">
+                                                                    <h4 class="view-name">{{second_rply.username}}</h4>
+                                                                    <p class="community-text">{{second_rply.reply.length > strSecLength && !ContinueSecReading[secRplyIndex] ? second_rply.reply.substr(0, strSecLength)+'...' : second_rply.reply}}    </p>
+                                                                <p *ngIf="second_rply.reply.length > strSecLength && !ContinueSecReading[secRplyIndex]" class="continue-reading curser" (click)="continueSecReading(secRplyIndex)">Continue Reading...</p>
+                                                                </div>
+                                                            </div>
+                                                    </ion-row>
+                                                </div>
+                                                </div>
+                                                </div>
+                                            </div>
+                                            <div class="inner-reply">
+                                                <div class="textarea-div d-block">
+                                                    <div class="area-img">
+                                                        <div class="text-bg-img circle-large icon-circle-outline" *ngIf="profilePicture != ''; else smallelseBlockFour">
+                                                            <img class="round-image-small" src="assets/images/profile/{{profilePicture}}" alt="{{ profilePicture }}" width="70px" height="70px"/>
+                                                        </div>
+                                                        <ng-template #smallelseBlockFour>
+                                                            <div class="text-bg-img bg-primary circle-large icon-circle-outline"> 
+                                                                <div id="small_circle" [ngClass]="redColor.indexOf(username.charAt(0).toUpperCase())>-1 ? 'avatar-red' : orangeColor.indexOf(username.charAt(0).toUpperCase())>-1?'avatar-orange' : yellowColor.indexOf(username.charAt(0).toUpperCase())>-1?'avatar-yellow' : greenColor.indexOf(username.charAt(0).toUpperCase())>-1?'avatar-green':blueColor.indexOf(username.charAt(0).toUpperCase())>-1?'avatar-sky-blue' :'avatar-purple'" class="text-bg-img circle-large icon-circle-outline" data-profile_initials>{{ username.charAt(0).toUpperCase() }}</div>
+                                                            </div>
+                                                        </ng-template>
+                                                    </div>
+                                                    <div class="area">
+                                                        <textarea (keydown.enter)="onKeydown($event)" (keyup.enter)="doReply(community.id, community.discussion_list[0]?.answer_id, post_rply.comment_id, $event.target.value,commIndex, postRplyIndex)" name="comment" text-center padding placeholder="Write a reply" class="text-input"></textarea>
+                                                        <span class="error m-0-auto" col-12 ion-text color="danger" *ngIf="isWhitespaceSecComment[postRplyIndex]">Please enter valid text.</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                </ion-row>
+                            <!-- </div> -->
+                        </div>
+                        <div *ngIf="community.discussion_list[0]?.post_rply.data.length == 0">
+                            <div col-12><h4>No replies yet</h4></div></div>
+                    </ion-row>
+                    <ion-row padding-bottom >
+                        <div class="textarea-div d-block">
+                            <div class="area-img">
+                                 <div class="text-bg-img circle-large icon-circle-outline" *ngIf="profilePicture != ''; else smallelseBlockFive">
+                                    <img class="round-image-small" src="assets/images/profile/{{profilePicture}}" alt="{{ profilePicture }}" width="70px" height="70px"/>
+                                </div>
+                                <ng-template #smallelseBlockFive>
+                                    <div class="text-bg-img bg-primary circle-large icon-circle-outline">
+                                        <div id="small_circle" [ngClass]="redColor.indexOf(username.charAt(0).toUpperCase())>-1 ? 'avatar-red' : orangeColor.indexOf(username.charAt(0).toUpperCase())>-1?'avatar-orange' : yellowColor.indexOf(username.charAt(0).toUpperCase())>-1?'avatar-yellow' : greenColor.indexOf(username.charAt(0).toUpperCase())>-1?'avatar-green':blueColor.indexOf(username.charAt(0).toUpperCase())>-1?'avatar-sky-blue' :'avatar-purple'" class="text-bg-img circle-large icon-circle-outline" data-profile_initials>{{ username.charAt(0).toUpperCase() }}</div>
+                                    </div>
+                                </ng-template>
+                            </div>
+                            <div class="area">
+                               <textarea  name="comment" (keydown.enter)="onKeydown($event)" (keyup.enter)="doReply(community.id, community.discussion_list[0]?.answer_id, null , $event.target.value, commIndex)" text-center padding placeholder="Write a reply"  class="text-input"></textarea>
+                             <span class="error m-0-auto" col-12 ion-text color="danger" *ngIf="isWhitespaceComment[commIndex]">Please enter valid text.</span>
+                            </div>
+                        </div>
+    				</ion-row>
+                </ion-card-content>
+            </ion-card>
+            <ion-infinite-scroll (ionInfinite)="doInfinite($event)" *ngIf="page < totalPage">
+                <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data..."></ion-infinite-scroll-content>
+            </ion-infinite-scroll>
+        </div>
+    </section>
+</ion-content>

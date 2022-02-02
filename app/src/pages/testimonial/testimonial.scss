@@ -1,0 +1,44 @@
+page-testimonial {
+    .toolbar-title-md,
+    .toolbar-title-ios {
+        margin-top: 0;
+    }
+    .round-image {
+        width: 60px !important;
+        height: 60px;
+    }
+    .slider-container {
+        position: relative
+    }
+    .swiper-button-prev,
+    .swiper-button-next {
+        height: 30px;
+        width: 27px;
+        background-size: 30px;
+    }
+    .swiper-button-prev {
+        background-image: url("../assets/images/slider_arrow_left.png");
+        left: -65px;
+        top: 40%;
+    }
+    .swiper-button-next {
+        background-image: url("../assets/images/slider_arrow_right.png");
+        right: -65px;
+        top: 40%;
+    }
+    .toolbar-title-md,
+    .toolbar-title-ios {
+        margin-top: 0;
+    }
+    .swiper-pagination{
+        bottom:0; 
+    }
+    .slide-text{margin-bottom: 0;}
+    .testi-name{margin-bottom:40px;margin-top: 0;}
+    @media (max-width: 1023px) {
+        .swiper-button-prev,
+        .swiper-button-next {
+            display: none;
+        }
+    }
+}

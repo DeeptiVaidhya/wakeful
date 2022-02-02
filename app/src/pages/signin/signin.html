@@ -1,0 +1,55 @@
+<ion-header *ngIf="islogin === true">
+	<ion-navbar *ngIf="islogin === true"></ion-navbar>
+</ion-header>
+<ion-content padding class="container" *ngIf="islogin === true">
+	<section class="w-1024">
+		<div col-lg-5 col-12 class="m-0-auto">
+			<form [formGroup]="loginForm" (ngSubmit)="signIn()" autocomplete="off">
+				<ion-row>
+					<ion-label stacked> USERNAME OR EMAIL ADDRESS</ion-label>
+					<ion-item>
+						<ion-input formControlName="username" id="username" type="text"
+							[class.invalid]="!loginForm.controls.username.valid && (loginForm.controls.username.dirty)">
+						</ion-input>
+
+						<ion-icon class="m-b-0" name="checkmark" item-right color="green"
+							*ngIf="loginForm.controls['username'].valid"></ion-icon>
+					</ion-item>
+
+					<p class="error m-0-auto" col-12 ion-text color="danger"
+						*ngIf="loginForm.controls['username'].hasError('required') && loginForm.controls['username'].touched">
+						Email field is required.</p>
+					<p class="error m-0-auto" col-12 ion-text color="danger"
+						*ngIf="loginForm.controls['username'].hasError('pattern') && loginForm.controls['username'].touched">
+						Please enter a valid email.</p>
+					<ion-label stacked>PASSWORD</ion-label>
+					<ion-item>
+						<ion-input formControlName="password" id="password" type="password"
+							[class.invalid]="!loginForm.controls.password.valid && (loginForm.controls.password.dirty)">
+						</ion-input>
+
+						<ion-icon class="m-b-0" name="checkmark" item-right color="green"
+							*ngIf="loginForm.controls['password'].valid"></ion-icon>
+					</ion-item>
+
+					<p class="error m-0-auto" col-12 ion-text color="danger"
+						*ngIf="loginForm.controls['password'].hasError('required') && loginForm.controls['password'].touched">
+						Password field is required.</p>
+
+					<ion-checkbox color="dark" slot="start" formControlName="remember_me" id="remember_me">
+					</ion-checkbox>
+					<ion-label>Remember Me</ion-label>
+				</ion-row>
+				<div class="m-t-10">
+					<div padding-top text-center>
+						<button col-12 ion-button round class="submit-btn" color="primary"
+							[disabled]="!loginForm.valid">SIGN IN</button>
+					</div>
+					<div text-center color="primary" margin-top>
+						<a [navPush]="forgotPasswordPage">I forgot my password</a>
+					</div>
+				</div>
+			</form>
+		</div>
+	</section>
+</ion-content>

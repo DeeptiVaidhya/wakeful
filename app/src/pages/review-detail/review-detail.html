@@ -1,0 +1,120 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title text-center> {{(review_detail.title) ? review_detail.title : "Review Detail"}} </ion-title>
+		<a menuToggle end float-right>
+			<ion-icon name="im-menu"></ion-icon>
+		</a>
+	</ion-navbar>
+</ion-header>
+<ion-content>
+    <section>
+		<div class="w-985">
+			<!-- <breadcrumb [data]="breadcrumb"></breadcrumb> -->
+			<div>
+	        <p (click)="back()" class="back-btn"><img src='assets/images/arrow.svg' width="13px" style="vertical-align: inherit;" /> BACK TO REVIEW</p>
+	    </div>
+		</div>
+		<ion-row class="w-985" justify-content-center padding-left padding-right>
+
+			<div col-12>
+				<p class="title-text" text-center>{{(review_detail.intro_text) ? review_detail.intro_text : "Below is the course content from Class that you can watch
+					and listen to again ."}}</p>
+			</div>
+		</ion-row>
+    </section>
+
+	<div class="w-985">
+        <div class="ww-985">
+            <div *ngIf="review_detail.review_data?.length > 0">
+                <section class="bg-white"  *ngFor="let review of review_detail.review_data; let index=index">
+                    <div>
+                        <ion-row class="w-1024 row-cont p-l-r-0-mob" justify-content-center padding>
+                            <div class="audios video-cont" col-lg-6 col-sm-12 col-12 class="{{review.type}} video-cont">
+                                <vg-player (onPlayerReady)="onPlayerReady($event,index,review)">                                   
+                                    <vg-play-pause *ngIf="review.type === 'videos' && players[index]?.api.state == 'paused' || players[index]?.api.state == 'ended'"  class="ion-md-im-brandbubble f-6em" (click)="onPlay({'time':players[index].api.time,'reviews_files_id':review.id,'reviews_id':review.reviews_id,'files_id':review.files_id})"></vg-play-pause>
+        
+                                    <vg-controls> 
+                                        <vg-play-pause *ngIf="review.type === 'audios' || review.type === 'podcast'" class="ion-md-im-brandbubble f-6em" (click)="onPlay({'time':players[index].api.time,'reviews_files_id':review.id,'reviews_id':review.reviews_id,'files_id':review.files_id})"></vg-play-pause>
+                                        <vg-time-display vgProperty="current" vgFormat="mm:ss"></vg-time-display>
+                                        <vg-scrub-bar [vgSlider]="true">
+                                            <vg-scrub-bar-current-time [vgSlider]="true"></vg-scrub-bar-current-time>
+                                        </vg-scrub-bar>
+                                        <vg-time-display vgProperty="total" vgFormat="mm:ss"></vg-time-display>
+
+                                        <div text-left class="read-script">
+                                            <vg-play-pause class="pause-icon" *ngIf="review.type === 'videos' && players[index]?.api.state != 'paused' && players[index]?.api.state != 'ended'" (click)="onPlay({'time':players[index].api.time,'reviews_files_id':review.id,'reviews_id':review.reviews_id,'files_id':review.files_id})"></vg-play-pause>
+                                            <span *ngIf="review.type === 'videos'" (click)="showAlert(review.video_title,review.video_script)">
+                                                <ion-icon name="im-script"></ion-icon>
+                                                <span>Read Script</span>
+                                            </span>
+                                            <span *ngIf="review.type === 'audios' || review.type === 'podcast'"  (click)="showAlert(review.audio_title,review.audio_script)">
+                                                <ion-icon name="im-script"></ion-icon>
+                                                <span>Read Script</span>
+                                            </span>
+                                            <vg-mute></vg-mute>
+                                            <vg-fullscreen *ngIf="review.type !== 'audios'"></vg-fullscreen>
+                                        </div>  
+                                       
+                                    </vg-controls>
+                                    <audio seekTime="3" *ngIf="review.type === 'audios' || review.type === 'podcast'"  #media [vgMedia]="media" preload="auto">
+                                        <source [src]="review.url">
+                                    </audio>
+
+
+                                    <video *ngIf="review.type === 'videos'" #media [vgMedia]="media" preload="auto" [controls]="controls">
+                                        <source [src]="review.url">
+                                    </video>                                   
+                                </vg-player> 
+                            </div>
+                            <div col-lg-6 col-sm-12 col-12 class="video-cont">
+                                <div class="video-content text-hide">
+                                    <h1 class="gray-text">
+                                        <strong *ngIf="review.type === 'videos'">{{review.video_practice_title}}</strong>
+                                        <strong *ngIf="review.type === 'audios' || review.type === 'podcast'" >{{review.audio_practice_title}}</strong>
+                                    </h1>
+
+                                    <p class="gray-text text-concat-hide" *ngIf="review.type === 'videos'">{{review.video_practice_text}}</p>
+                                    <p class="gray-text text-concat-hide" *ngIf="review.type === 'audios' || review.type === 'podcast'" >{{review.audio_practice_text}}</p>  
+                                </div>                               
+                            </div>
+                        </ion-row>
+                    </div>			
+                </section>		
+            </div>
+        </div>       
+
+        <div *ngFor="let homework of homework_data; let index=index">
+			<section  *ngIf="(homework.type=='reading')">
+				<div class="ww-985" col-12>
+					<div>
+						<h4 class="head-h4">{{homework.title}}</h4>
+					</div>
+				</div>
+				<ion-row class="ww-985">	
+					<div col-12>
+						<p class="gray-text" [innerHtml]='(homework?.intro_text) ? homework?.intro_text : "Below is the course content from Class that you can watch and listen to again ."'>
+						</p>
+					</div>
+				</ion-row>	
+            </section>	
+            <div *ngIf="(homework.type=='reading') && homework.exercises_detail?.length > 0">
+                <section class="bg-white" *ngFor="let homework of homework.exercises_detail;">
+                    <ion-row class="w-1024 supportive-reading" >
+                        <div col-lg-2 col-md-2 col-sm-12 col-12 class="center">
+                            <img src="assets/images/reading-pdf.png" class="pdf-book" alt="pdf-book" width="100px"/>
+                        </div>
+    
+                        <div col-lg-7 col-md-7 col-sm-12 col-12 class="center">
+                            <h1 class="h1-title">{{ homework.title}}</h1>
+                            <h6 class="h6-title">Posted by {{ homework.author}}</h6>
+                            <p class="reading-content clearfix">{{getReadingDetail(homework?.reading_detail)}}</p>
+                        </div>
+                        <div col-lg-3 col-md-3 col-sm-12 col-12 text-right class="right">
+                            <button col-12 color="primary" ion-button round class="button btn-readmore" (click)="readingDetail(homework,'reading')">Read More</button>
+                        </div>
+                    </ion-row>
+                </section>
+            </div>            
+        </div>        
+	</div>	
+</ion-content>

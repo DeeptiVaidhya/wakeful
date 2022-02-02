@@ -1,0 +1,47 @@
+<!--
+  Generated template for the VideoIntroPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-navbar>
+        <ion-title text-center> {{ page_info.title }} </ion-title>
+        <a menuToggle end>
+            <ion-icon name="im-menu"></ion-icon>
+        </a>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content text-center [style.backgroundImage]="'url('+bg_image+')'">
+    <section class="w-1024 v-align-center video-intro-bg">
+        <div col-lg-5 col-12 class="m-0-auto intro-content">
+            <section class="video-intro-text">
+                <h1 class="gray-text f-32"><strong>{{ page_detail.header }}</strong></h1>
+                <p class="f-14 gray-text">{{ page_detail.pretext }}.</p>
+            </section>
+
+        </div>
+        <div justify-content-center margin-top padding-top text-center col-lg-8 col-12 class="m-0-auto">
+            <!-- <ion-col col-4 col-sm-3 col-md-2 (click)="playVideo()">
+                <ion-icon color="dashbg-blue" name="im-brandbubble" class="f-11em c-white">
+                    <span class="btn-play">
+                        <ion-icon ios="ios-play" md="md-play" color="pink"></ion-icon>
+                    </span>
+                </ion-icon>
+            </ion-col> -->
+            <div col-12 col-lg-7 col-md-7 col-sm-12 class="m-0-auto">
+                <button ion-button col-12 full round type="button" (click)="playVideo()" color="'primary'" [disabled]="disableButton">Let's begin</button>
+            </div>
+        </div>
+           
+    </section>
+</ion-content>
+<ion-footer class="progress-wrapper">
+    <div class="w-1024">
+        <div col-md-12 col-sm-12 col-12 class="m-0-auto">
+            <progress-bar [progress]="progress"></progress-bar>
+        </div>
+    </div>
+</ion-footer>

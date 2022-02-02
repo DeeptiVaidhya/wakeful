@@ -1,0 +1,72 @@
+<!--
+  Generated template for the NotificationPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <back-static-header></back-static-header>
+</ion-header>
+
+
+<ion-content padding>
+	<section class="w-1024">
+		<ion-row *ngIf="notificationList.length > 0">
+			<ion-card class="card-bg" *ngFor="let notification of notificationList">
+				<ion-card-content [ngClass]="notification.is_read == '0' ? 'grey' : ''" *ngIf="!notification.parent_comment_id">
+					<div class="list-content" (click)="showPost(notification.question_id, notification.post_id, notification.comment_id)">
+						<div col-lg-1 col-sm-2 col-3 class="letr-img">
+							<div class="letter-icon-blue text-bg-img circle-large icon-circle-outline" *ngIf="notification.commenter_profile_picture != ''; else smallelseBlock">
+								<img class="round-image-small" src="assets/images/profile/{{notification.commenter_profile_picture}}" alt="{{ notification.commenter_profile_picture }}" width="70px" height="70px"/>
+							</div>
+							<ng-template #smallelseBlock>
+								<div class="letter-icon-blue text-bg-img bg-primary circle-large icon-circle-outline">
+									<div id="small_circle" class="text-bg-img bg-primary circle-large icon-circle-outline" data-profile_initials>{{ notification.commenter_name.charAt(0).toUpperCase() }}</div>
+								</div>
+							</ng-template>
+						</div>
+						<div col-lg-11 col-sm-10 col-9>
+							<p>
+								<span class="name">{{notification.commenter_name}}</span>
+								commented on 
+								<span class="post">your post</span>
+							</p>
+						</div>
+					</div>
+				</ion-card-content>
+				<ion-card-content [ngClass]="notification.is_read == '0' ? 'grey' : ''" *ngIf="notification.parent_comment_id">
+					<div class="list-content" (click)="showPost(notification.question_id, notification.post_id, notification.comment_id)" >
+						<div col-lg-1 col-sm-3 col-2 class="letr-img">
+							<div class="letter-icon-blue text-bg-img circle-large icon-circle-outline" *ngIf="notification.sub_comm_profilepicture != ''; else smallelseBlock">
+								<img class="round-image-small" src="assets/images/profile/{{notification.sub_comm_profilepicture}}" alt="{{ notification.sub_comm_profilepicture }}" width="70px" height="70px"/>
+							</div>
+							<ng-template #smallelseBlock>
+								<div class="letter-icon-blue text-bg-img bg-primary circle-large icon-circle-outline">
+									<div id="small_circle" class="text-bg-img bg-primary circle-large icon-circle-outline" data-profile_initials>{{ notification.sub_commenter_name.charAt(0).toUpperCase() }}</div>
+								</div>
+							</ng-template>
+						</div>
+						<div col-lg-11 col-sm-3 col-10>
+							<p>
+								<span class="name">{{notification.sub_commenter_name}}</span>
+								replied to 
+								<span class="name">{{notification.commenter_name}}'s</span>
+								comment on
+								<span class="post">post</span>
+							</p>
+						</div>
+					</div>
+				</ion-card-content>
+			</ion-card>
+			<ion-infinite-scroll (ionInfinite)="doInfinite($event)" *ngIf="page < totalPage">
+				<ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data..."></ion-infinite-scroll-content>
+			</ion-infinite-scroll>
+		</ion-row>
+		<ion-row *ngIf="notificationList.length == 0">
+			<ion-col>
+				<h1 class="not-found">No notification found</h1>
+			</ion-col>
+		</ion-row>
+	</section>
+	
+</ion-content>

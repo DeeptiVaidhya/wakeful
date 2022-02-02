@@ -1,0 +1,30 @@
+page-community {
+    ion-list ion-item.item{
+        opacity: 0.8;
+    }
+    ion-item.active h2 {
+        color: #604a70;
+    }
+    ion-item.open > .item-inner > .input-wrapper > ion-label{padding-bottom:0;margin-bottom:0;}
+    .overflow-text {
+        width: 445px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    @media (max-width:767px) {
+        .p-0-mob {
+            padding: 0 !important;
+        }
+        .m-t-10 {
+            margin-top: 10px;
+        }
+        .btn-list ion-label {
+            padding: 0;
+        }
+        .accordian-plus-minus {
+            top: 0px;
+        }
+        
+    }
+}

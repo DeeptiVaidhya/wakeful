@@ -1,0 +1,61 @@
+<!--
+  Generated template for the DashboardPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <app-header [title]="title"></app-header>
+</ion-header>
+<ion-content text-center no-padding>
+    <section padding-top class="w-1024">
+        <section padding margin-top>
+            <h1 class="gray-text f-32">
+                <strong>Welcome{{ (!dashboardData.is_new_user) ? ' back' : ''}}, {{dashboardData.username}}.</strong>
+            </h1>
+            <p class="gray-text">Here is your progress so far.</p>
+            <ion-row justify-content-center>
+                <ion-col col-4 col-sm-3 col-md-2>
+                    <ion-icon color="dashbg-blue" name="im-brandbubble" class="f-7em">
+                        <span>{{dashboardData.meditation_minutes}}</span>
+                    </ion-icon>
+                    <p class="progress-title">practice Minutes</p>
+                </ion-col>
+                <ion-col col-4 col-sm-3 col-md-2>
+                    <ion-icon color="dashbg-yellow" name="im-brandbubble" class="f-7em">
+                        <span>{{dashboardData.consecutive_days}}</span>
+                    </ion-icon>
+                    <p class="progress-title">consecutive days of practice</p>
+                </ion-col>
+                <ion-col col-4 col-sm-3 col-md-2>
+                    <ion-icon color="dashbg-pink" name="im-brandbubble" class="f-7em">
+                        <span>{{dashboardData.completed_class}}</span>
+                    </ion-icon>
+                    <p class="progress-title">completed classes</p>
+                </ion-col>
+            </ion-row>
+        </section>
+    </section>
+    <section style="background: #FFF">
+        <div class="w-1024" justify-content-center padding text-center>            
+            <div *ngIf="!dashboardData.current_class_status">
+                <p class="gray-text">Where you are in the course</p>
+                <h3 class="gray-text f-26">{{dashboardData.current_class}} <span *ngIf="dashboardData.current_page">:</span>
+                    <strong>{{dashboardData.current_page}} </strong>
+                </h3>
+                <div col-md-5 col-sm-6 col-12 class="m-0-auto">
+                    <button *ngIf="dashboardData.class_status && (dashboardData.class_status =='STARTED')" ion-button col-12 full round class="submit-btn" color="primary" [disabled]="!tabshow" (click)="startClass()">Start</button>
+                    <button *ngIf="dashboardData.class_status && dashboardData.class_status =='INPROGRESS'" ion-button col-12 full round class="submit-btn" color="primary" [disabled]="!tabshow" (click)="startClass()">Continue</button>
+                    <span *ngIf="dashboardData.class_status && dashboardData.class_status =='COMPLETED'" class="gray-text">Please complete the required daily home practice exercises until the next class becomes available.</span>
+                </div>
+                <div col-md-5 col-sm-6 col-12 class="m-0-auto">
+                   <p *ngIf="dashboardData.week_number > 0" class="next">Next Class: Starts in {{dashboardData.nextClassDays}} Days</p>
+                   <p><a href="javascript:void(0)" (click)="classSchedule()" class="view">View full class Schedule <span class="arrow arrow-bar is-right"></span></a></p>
+                </div>
+            </div>
+            <div *ngIf="dashboardData.current_class_status">
+                <p class="gray-text">{{ dashboardData.current_class_status }}</p>
+            </div>
+        </div>
+    </section>
+</ion-content>

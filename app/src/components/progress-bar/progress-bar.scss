@@ -1,0 +1,118 @@
+.progress-wrapper {
+    background: #FFF;
+    bottom:55px !important;
+    border-bottom: 1px solid #f5f5f5;
+}
+
+ion-footer {
+    margin-bottom: 1px
+}
+progress-bar .progress-outer {
+    background-color: #fbe9f2 !important;
+    height: 15px;
+}
+progress-bar .progress-inner {
+    background-color: #dd77ab !important;
+    height: 15px; 
+}
+.bg-pink {
+    background-color: #fbe9f2 !important;
+    background: #fbe9f2;
+    width: 35px !important; 
+    padding: 8px 0px;
+    text-align: center;
+    border-radius: 50%;
+    position: absolute;
+    top: 5px;
+    right: 13%; 
+}
+
+progress-bar {
+    .progress-container {
+        width: 100%;
+        display: block;
+        padding: 10px 0;
+        position: relative;
+    }
+    .progress-container span {
+        font-size: 1rem;
+        font-weight: 600;
+    }
+    .progress-pretext {
+        width: 25%;
+        float: left;
+        margin-right: 10px;
+        text-align: right;
+    }
+    .progress-posttext {
+        width: 10%;
+        float: left;
+    }
+    .progress-outer {
+        float: left;
+        width: 60%;
+        margin-right: 10px;
+    }
+    .progress-outer {
+        background-color: #dedede;
+        border-radius: 10px;
+    }
+    .progress-inner {
+        /*min-width: 15%;*/
+        white-space: nowrap;
+        overflow: hidden;
+        padding: 6px;
+        border-radius: 10px;
+        background-color: #6f6f70;
+    }
+    @media (max-width: 768px) {
+        .progress-container span {
+            font-size: 0.9rem;
+        }
+        .progress-pretext {
+            width: 30%;
+        }
+        .progress-outer {
+            width: 54%;
+        }
+        .progress-inner {
+            padding: 5px;
+        }
+    }
+
+    @media (max-width: 767px) {
+        .progress-wrapper {
+            bottom:59px !important;
+        }
+    }
+
+    @media (max-width: 425px) {
+        .progress-container span {
+            font-size: 0.85rem;
+        }
+        .progress-pretext {
+            width: 26%;
+        }
+        /*.progress-outer {
+            width: 50%;
+        }*/
+        .progress-inner {
+            padding: 4px;
+        }
+        //.progress-pretext {
+        /*display: block;
+            width: 100%;
+            text-align: center;
+            padding-bottom: 10px;*/
+        //}
+        /*.progress-outer {
+            width: 84%;
+        }*/
+        .progress-posttext {
+            width: 12%;
+        }
+        .progress-wrapper {
+            bottom:56px !important;
+        }
+    }
+}

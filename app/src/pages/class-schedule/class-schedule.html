@@ -1,0 +1,45 @@
+<!--
+  Generated template for the ClassSchedulePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <app-header [title]="title"></app-header>
+</ion-header>
+<ion-content>
+  <section margin-top class="w-1024" >
+    <div class="w-1024">
+			<breadcrumb [data]="breadcrumb"></breadcrumb>
+		</div>
+      <ion-list inset class="btn-list">
+
+          <div class="table-schedule table-responsive">
+            <table>
+              <thead>
+                <th class="text-center">Class No.</th>
+                <th width="80%">Class Name</th>
+                <th>Start date</th>
+              </thead>
+              <tbody>
+                <ng-container *ngFor="let class of classList;  let i = index">
+                <tr *ngIf="class.week_number > 0">
+                  <td class="text-center" [ngClass]="[class.week_status == 'next_week' ? 'bold' : '']">{{i}}</td> 
+                  <td [ngClass]="[class.week_status == 'next_week' ? 'bold' : '']">{{class.title}}<span>
+                    <img src="./assets/images/check-table.png" *ngIf="class.status == 'COMPLETED'" width="15" style="float: right;"></span>
+                  </td>
+                    <td class="bold" >
+                      <span *ngIf="class.week_status == 'next_week'">{{ class.week_status == 'next_week' && class.start_at ? (class.start_at | date : 'MM/dd/yyyy') : 'N/A'}}</span> 
+                      
+                      <span *ngIf="class.week_status == 'current_week'"> {{ class.week_status == 'current_week' ? (class.class_start_at ? (class.class_start_at | date : 'MM/dd/yyyy') : (class.start_at | date : 'MM/dd/yyyy')) : 'N/A'}} </span> 
+
+                    </td>
+                 
+               </tr>
+              </ng-container>
+              </tbody>
+            </table>
+          </div>
+      </ion-list>
+  </section>
+</ion-content>

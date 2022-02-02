@@ -1,0 +1,131 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title text-center>INDEPENDENT PRACTICE</ion-title>
+		<a menuToggle end float-right>
+			<ion-icon name="im-menu"></ion-icon>
+		</a>
+	</ion-navbar>
+</ion-header>
+<ion-content>	
+
+	<div class="w-985">
+		<section>
+			<div class="w-985" col-12>
+				<div>
+					<p (click)="back()" class="back-btn"><img src='assets/images/arrow.svg' width="13px" style="vertical-align: inherit;" /> BACK TO PRACTICE</p>
+				</div>				
+			</div>
+			<ion-row class="w-985" justify-content-center padding-left padding-right>
+				<div col-12 *ngIf="(classList?.length> 0) || (practice_detail?.length> 0)">
+					<p class="text-light-gray mob-p-l-r" text-center>Below is some useful reading material to support you with your course.</p>	
+				</div>
+			</ion-row>
+
+			<div class="w-985"  *ngIf="!(classList?.length> 0) && !(practice_detail?.length> 0)">
+				<div>
+					<h4 class="no-detail">No Details found</h4>
+				</div>
+			</div>
+		</section>
+
+		<div class="w-985" *ngIf="classList?.length> 0">
+			<div class="ww-985">				
+					<section class="bg-odd-even" padding *ngFor="let homework of classList; let index=index">
+						<div class="video-div">
+							<ion-row class="row">
+								<div class="audios video-cont" *ngIf="homework.files_id" col-lg-6 col-md-6 col-sm-12 col-12 >
+									<vg-player (onPlayerReady)="onPlayerReady($event,index,homework)">
+										<vg-controls> 
+											<vg-play-pause class="ion-md-im-brandbubble f-8em" (click)="onPlay({'time':players[index].api.time,'files_id':homework.files_id,'practice_categories_id':homework.practice_categories_id},null)"></vg-play-pause>
+											<vg-time-display vgProperty="current" vgFormat="mm:ss"></vg-time-display>
+											<vg-scrub-bar [vgSlider]="true">
+												<vg-scrub-bar-current-time [vgSlider]="true"></vg-scrub-bar-current-time>
+											</vg-scrub-bar>
+											<vg-time-display vgProperty="total" vgFormat="mm:ss"></vg-time-display>
+											<div text-left class="read-script">
+												<span (click)="showAlert(homework.title,homework.script)">
+													<ion-icon name="im-script"></ion-icon>&nbsp;
+													<span>Read Script</span>
+												</span>
+												<vg-mute></vg-mute>
+											</div>
+										</vg-controls>
+										<audio seekTime="3" #media [vgMedia]="media" preload="auto">
+											<source [src]="homework.url">
+										</audio>                                
+									</vg-player> 
+								</div>
+								<div *ngIf="!homework.files_id" text-center col-lg-6 col-md-6 col-sm-12 col-12 class="audios video-cont">
+									<img class="exercise-image" src="assets/images/logo.png"/>
+								</div>
+								<div col-lg-6 col-md-6 col-sm-12 col-12 class="video-cont">
+									<div class="video-content text-hide">
+										<h1 class="gray-text"> 
+											<strong>{{homework.title}}</strong>
+										</h1>
+										<p class="gray-text text-concat-hide">Tip : {{homework.tip}}</p>
+									</div> 
+								</div>
+							</ion-row>
+						</div>			
+					</section>	
+			</div> 
+		</div> 
+		<div class="w-985">
+			<div *ngIf="practice_detail?.length > 0">
+                <section class="bg-white"  *ngFor="let pr of practice_detail; let playersindex=index">
+                    <div>
+                        <ion-row class="w-985 row-cont p-l-r-0-mob" justify-content-center padding>
+                            <div class="audios video-cont" col-lg-6 col-sm-12 col-12 class="{{pr.type}} video-cont" >
+                                <vg-player (onPlayerReady)="onPlayerReadyNew($event,playersindex,pr)">                                   
+									<vg-play-pause *ngIf="pr.type === 'videos' && players[playersindex]?.api.state == 'paused' || explayers[playersindex]?.api.state == 'ended'"  class="ion-md-im-brandbubble f-6em" (click)="onPlay({'time':explayers[playersindex].api.time,'files_id':pr.files_id,'practice_categories_id':pr.category_id})"></vg-play-pause>        
+                                    <vg-controls>                                  
+
+										<vg-play-pause *ngIf="pr.type === 'audios'" class="ion-md-im-brandbubble f-6em"  (click)="onPlay({'time':explayers[playersindex].api.time,'files_id':pr.files_id,'practice_categories_id':pr.category_id})"></vg-play-pause>
+                                        <vg-time-display vgProperty="current" vgFormat="mm:ss"></vg-time-display>
+                                        <vg-scrub-bar [vgSlider]="true">
+                                            <vg-scrub-bar-current-time [vgSlider]="true"></vg-scrub-bar-current-time>
+                                        </vg-scrub-bar>
+                                        <vg-time-display vgProperty="total" vgFormat="mm:ss"></vg-time-display>
+
+                                        <div text-left class="read-script">
+											<vg-play-pause class="pause-icon" *ngIf="pr.type === 'videos' && explayers[playersindex]?.api.state != 'paused' && explayers[playersindex]?.api.state != 'ended'"  (click)="onPlay({'time':explayers[playersindex].api.time,'files_id':pr.files_id,'practice_categories_id':pr.category_id})"></vg-play-pause>
+                                            <span *ngIf="pr.type === 'videos'" (click)="showAlert(pr.title,pr.script)">
+                                                <ion-icon name="im-script"></ion-icon>
+                                                <span>Read Script</span>
+                                            </span>
+                                            <span *ngIf="pr.type === 'audios'" (click)="showAlert(pr.title,pr.script)">
+                                                <ion-icon name="im-script"></ion-icon>
+                                                <span>Read Script</span>
+                                            </span>
+                                            <vg-mute></vg-mute>
+                                            <vg-fullscreen *ngIf="pr.type !== 'audios'"></vg-fullscreen>
+                                        </div>  
+                                       
+                                    </vg-controls>
+                                    <audio seekTime="3" *ngIf="pr.type === 'audios'" #media [vgMedia]="media" preload="auto">
+                                        <source [src]="pr.url">
+                                    </audio>
+                                    <video *ngIf="pr.type === 'videos'" #media [vgMedia]="media" preload="auto" [controls]="controls">
+                                        <source [src]="pr.url">
+                                    </video>                                   
+                                </vg-player> 
+                            </div>
+                            <div col-lg-6 col-sm-12 col-12 class="video-cont">
+                                <div class="video-content text-hide">
+                                    <h1 class="gray-text">
+                                        <strong *ngIf="pr.type === 'videos'">{{pr.practice_title}}</strong>
+                                        <strong *ngIf="pr.type === 'audios'">{{pr.practice_title}}</strong>
+                                    </h1>
+                                    <p class="gray-text text-concat-hide">{{pr.practice_text}}</p>
+                                                                   
+                                </div>
+                            </div>
+                        </ion-row>
+                    </div>			
+                </section>		
+            </div>
+		</div>
+	</div>
+	
+</ion-content>

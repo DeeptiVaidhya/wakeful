@@ -1,0 +1,39 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title text-center> {{ page_info.title }} </ion-title>
+		<a menuToggle end>
+			<ion-icon name="im-menu"></ion-icon>
+		</a>
+	</ion-navbar>
+</ion-header>
+
+
+<ion-content text-center [style.backgroundImage]="'url('+bg_image+')'">
+	<section class="w-1024 v-align-center" padding-top padding-bottom>
+		<form [formGroup]="intentionForm" (ngSubmit)="nextPage()" autocomplete="off">
+			<div col-lg-8 col-12 class="m-0-auto">
+				<h1 padding-top text-center class="gray-text f-32">{{ page_detail.header }}</h1>
+				<ion-row>
+					<ion-col col-12 margin-bottom class="f-14 gray-text">
+						{{ page_detail.intro_text }}
+					</ion-col>
+					<ion-col col-12>
+						<ion-textarea padding text-center formControlName="intention" id="intention" [class.invalid]="!intentionForm.controls.intention.valid && (intentionForm.controls.intention.dirty)"
+						 rows=10 placeholder="Your answer goes here"></ion-textarea>
+						<p class="error m-0-auto" col-12 ion-text color="danger" *ngIf="intentionForm.controls['intention'].hasError('required') && intentionForm.controls['intention'].touched && !intentionForm.controls['intention'].hasFocus">Intention field is required.</p>
+					</ion-col>
+				</ion-row>
+				<div class="m-0-auto" text-center col-12 col-lg-7 col-md-7 col-sm-12>
+					<button ion-button col-12 round color="primary" [disabled]="disableButton">{{ page_detail.button_text }}</button>
+				</div>
+			</div>
+		</form>
+	</section>
+</ion-content>
+<ion-footer class="progress-wrapper">
+	<div class="w-1024">
+		<div col-md-12 col-sm-12 col-12 class="m-0-auto">
+			<progress-bar [progress]="progress"></progress-bar>
+		</div>
+	</div>
+</ion-footer>

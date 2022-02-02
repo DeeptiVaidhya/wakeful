@@ -1,0 +1,30 @@
+<ion-header [hidden]=ishidden>
+    <app-header [title]="title" ></app-header>
+</ion-header>
+
+<ion-content class= "hide-class" [style.backgroundImage]="'url('+bg_image+')'" id="class" fullscreen no-scroll *ngIf="isvideo!==true"  [hidden]=ishidden>
+    <section class="w-1024" [hidden]="!REVISIT_CLASS" >
+        <ion-list inset class="btn-list">
+            <p class="text-light-gray mob-p-l-r  mt-70" text-center>Here you can start the class. Select the class below you'd like to start.</p>
+            <!-- <ion-item detail-push ion-item *ngFor="let class of classlist" (click)="startClassFromList(class.id)">
+                <h2><strong>{{ class.title }}</strong></h2>
+                <ion-icon name="ios-arrow-forward" item-right class="icon-gray"></ion-icon>
+                <ion-icon color="primary" name="ios-arrow-forward" item-right *ngIf="class.class_status==1"></ion-icon>
+                <ion-icon color="gray" name="ios-lock-outline" item-right *ngIf="class.class_status==0"></ion-icon> 
+            </ion-item> -->
+        </ion-list>
+        <ion-row class="tile_list" [ngClass]="class.status==0 ? 'tile-disabled' : '' "
+            *ngFor="let class of classlist;let index;">
+            <div  class="d-flex" (click)="class.status > 0 && startClassFromList(class.id)"  [ngClass]="{disabledNoOfCasesDiv: isDisabled}">
+                <ion-col>
+                    <ion-item color="primary" text-center style="background: #FFF">
+                        <span class="f_18">{{class.title}}</span>
+                    </ion-item>
+                    <div>
+                        <img src="{{ class.url }}" />
+                    </div>
+                </ion-col>
+            </div>
+        </ion-row>
+    </section>
+</ion-content>

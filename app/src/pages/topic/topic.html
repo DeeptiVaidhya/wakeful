@@ -1,0 +1,40 @@
+<!--
+  Generated template for the TopicPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-navbar>
+        <ion-title text-center> {{ page_info.title }} </ion-title>
+        <a menuToggle end>
+            <ion-icon name="im-menu"></ion-icon>
+        </a>
+    </ion-navbar>
+</ion-header>
+
+<ion-content text-center [style.backgroundImage]="'url('+bg_image+')'">
+    <section class="w-1024 v-align-center" justify-content-center padding-bottom>
+        <p padding col-sm-7 col-12 class="f-14 topic_intro">{{ page_detail.intro_text }}</p>
+        <ion-row col-lg-6 col-sm-8 col-12 padding-top class="m-0-auto" justify-content-start>
+            <ion-col class="bubble-icon" col-md-4 col-sm-6 *ngFor="let topic of page_detail.sub_details">
+                <ion-icon [style.color]="topic.topic_color" name="im-brandbubble" (click)="showDetail(topic)">
+                    <span class="topic_title_color">{{ topic.topic_title}} </span>
+                </ion-icon>
+            </ion-col>
+        </ion-row>
+        <div margin-top col-lg-8 col-12 class="m-0-auto">
+            <div text-center col-12 col-lg-7 col-md-7 col-sm-8 class="m-0-auto">
+                <!-- <div margin-top text-center padding-top class="m-0-auto" col-lg-7 col-sm-10 > -->
+                <button col-12 ion-button round type="button" color="primary" (click)="nextPage()" [disabled]="disableButton">{{ page_detail.button_text }}</button>
+            </div>
+        </div>
+    </section>
+</ion-content>
+<ion-footer class="progress-wrapper">
+    <div class="w-1024">
+        <div col-md-12 col-sm-12 col-12 class="m-0-auto">
+            <progress-bar [progress]="progress"></progress-bar>
+        </div>
+    </div>
+</ion-footer>

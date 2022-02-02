@@ -1,0 +1,62 @@
+page-topic {
+    ion-icon[class*="ion-md-im-brandbubble"], ion-icon[class*="ion-ios-im-brandbubble"] {
+        position: relative;
+        color: #FCDF91;
+    }
+    .topic_title_color{
+        color:#242424;
+        font-size: 16px;
+        font-weight: bold;
+    }
+    .topic_intro{
+        color:#242424;
+        font-size: 18px;
+        font-weight: bold;
+    }
+    .toolbar-title-md,
+    .toolbar-title-ios {
+        margin-top: 0;
+    }
+    [class*="ion-md-im-brandbubble"] span,
+    [class*="ion-ios-im-brandbubble"] span {
+        font-size: 1.6rem;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        font-weight: 900;
+        padding: 15px;
+        line-height: 24px;
+        text-align: center;
+    }
+    .toolbar-title-md,
+    .toolbar-title-ios {
+        margin-top: 0;
+    }
+    [class*="ion-md-im-brandbubble"],
+    [class*="ion-ios-im-brandbubble"] {
+        font-size: 9.5em;
+        cursor: pointer;
+    }
+    @media (max-width: 767px) {
+        .bubble-icon:nth-child(2n+2):after {
+            clear: both;
+        }
+    }
+    @media (min-width: 768px) {
+        .bubble-icon:nth-child(3n+3):after {
+            clear: both;
+        }
+    }
+    @media (max-width: 374px) {
+        [class*="ion-md-im-brandbubble"],
+        [class*="ion-ios-im-brandbubble"] {
+            font-size: 8em;
+        }
+        [class*="ion-md-im-brandbubble"] span,
+        [class*="ion-ios-im-brandbubble"] span {
+            font-size: 1.25rem;
+            line-height: 15px;
+            padding: 10px;
+        }
+    }
+}

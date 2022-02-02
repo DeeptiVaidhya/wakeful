@@ -1,0 +1,395 @@
+.mr-top {
+	margin-top: 50px;
+}
+.playing {
+	padding: 0 !important;
+	margin: -13px !important;
+}
+
+.stop-btn {
+	font-size: 12px !important;
+    padding: 0;
+    height: 40px !important;
+}
+.mr-auto {
+	margin:  0 auto;
+} 
+.pink-active {
+	color: #fff;
+	background: #DD77AC;
+	border: 1px solid transparent !important;
+}
+ 
+.modal-content {
+	background: #604A70;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} 
+.modal-close {
+    color: #707070;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    z-index: 99999;
+    font-size: 30px;
+}
+
+.c-blue-text {
+	color: #604a70;
+	cursor: pointer;
+}
+
+.right-devide h3, h3 {
+	font-size: 18px;
+	color: #707070;
+	text-transform: capitalize;
+}
+.meditation-time > div {
+	margin-top: 25px;
+}
+.meditation-time > div > p {
+	font-size: 100px !important;
+	margin: 0 0 -15px !important;
+    line-height: 111px !important; 
+}
+
+.mt-20 {
+	margin-top: 20px;
+}
+.prepare-time {
+	font-size: 32px !important;
+	margin: 10px 0 0 0 !important;
+    line-height: 35px;
+}
+.mt--50 {
+	margin-top: -48px;
+}
+.mb-20 {
+	margin-bottom: 20px;
+}
+
+.main {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-end;
+	height: 375px;
+}
+
+.pd-0 {
+	padding: 0;
+}
+.right-devide {
+	width:533px;
+	margin:0 auto;
+	display:flex;
+	background: #FFF;
+} 
+.add-br {
+	border: 2px solid #fff;
+	padding: 30px;
+	width: 100%;
+}
+
+.right-devide .scroll .scroll-devide {
+    max-height: 330px;
+    overflow-y: scroll;
+}
+.btn-148 {
+	width: 130px;
+	height: 40px;
+	padding: 0;
+	margin: 0;
+	margin-top: 20px;
+}
+.center-text {
+	text-align: center;
+}
+.mr-l {
+	display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-left: 10px;
+}
+.pd-l {
+	padding-left: 20px;
+}
+.mr-t-10 {
+	margin-top: 10px;
+}
+
+.ion-ios-arrow-down {
+	display: block;
+	margin-top: -15px;
+}
+.D-block {
+	display: block;
+}
+.pd-0 {
+	padding: 0;
+}
+.meditation-time {
+	height: 200px; 
+	padding-top: 20px;
+}
+.meditate {
+	width: 252px;
+	font-size: 14px; 
+	padding: 0;
+	height: 50px;
+	letter-spacing: 1.5px;
+}
+page-meditation-timer .meditation-time p.seperator {
+  margin-top: -5px !important;
+}
+.mt-30 {
+	margin-top: 30px;
+}
+.down-img {
+	margin: 0 0 60px 0;
+}
+page-meditation-timer .meditation-time ion-icon, .ion-ios-arrow-down {
+	font-size: 26px !important;
+}
+page-meditation-timer .meditation-time > div > p {
+  font-size: 114px !important;
+  margin: 15px 0 0 0 !important;
+  line-height: 105px !important; 
+}
+
+.meditation-time{
+	font-size: 247px;
+	font-weight: 700;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.meditation-time .arrows{
+	position: absolute;
+}
+.meditation-time .arrows.arrow-min-up{
+	left:20px;
+	top: 0;
+}
+
+.meditation-time-heading {
+	font-size: 18px;
+	color: #707070;
+	text-transform: capitalize;
+	display: inline-block;
+	margin-bottom: 15px;
+}
+.meditation-time .arrows.arrow-min-down{
+	left:40px;
+	bottom: 0;
+}
+.meditation-time .arrows.arrow-sec-up{
+	right:40px;
+	top: 0;
+}
+.meditation-time .arrows.arrow-sec-down{
+	right:20px;
+	bottom: 0;
+}
+.meditation-time > div {
+	line-height: 0;
+}
+.meditation-time > div > p{
+	font-weight: bold;
+	vertical-align: middle;
+}
+#mtIntervalTime{
+	font-size: 20px;
+}
+.meditation-time p.seperator {
+	margin-top:-68px;
+}
+
+.meditation-time ion-icon{
+	font-size:80px;
+	font-weight: bold;
+	cursor: pointer;
+}
+.prepare-time{
+	font-size: 60px;
+ 	font-weight: bold;
+ 	margin:  20px 0;
+ }
+.btn-white{
+	background-color: #fff;
+	color: #604a70;
+	border: 1px solid #604A70;
+}
+.mt-40{
+	margin-top: 40px;
+}
+
+.f-8em {
+    font-size: 0em;
+}
+
+
+.label {
+	padding-bottom: 0; 
+    padding-top: 0; 
+  
+}
+
+.item-md h3, .item-md h4, .item-md h5, .item-md h6 {
+	line-height: 20px;
+}
+
+.item-md ion-icon[item-right], .item-md ion-icon[item-start], .item-md ion-icon[item-end] {
+	margin-left: 0;
+	margin-top: 4px;
+	margin-bottom: 0px;
+}
+
+.label-md {
+	margin: 15px 8px 14px 0;
+}
+
+.item-md{
+	cursor: pointer;
+}
+
+
+
+@media (max-width: 767px){
+	.main .right-devide {
+		width: 100%;
+		margin-left: 0;
+		margin-top: 30px;
+		margin-bottom: 20px;
+		overflow: hidden;
+	}
+	.meditation-time > div > p {
+		line-height: 0;
+		margin: 70px 0 35px;
+		font-size: 120px;
+		font-weight: bold;
+	}
+	.meditation-time p.seperator {
+		margin-top: 40px;
+	}
+	.devide {
+		width: 100%;
+	}
+
+	.right-devide h3, h3 {
+		margin-top: 50px !important;
+		font-size: 24px;
+		color: #fff;
+	}
+
+	.main {
+		height: auto;
+	}
+	.w-988 {
+		margin: 0 auto;
+	}
+	.accordian-plus-minus {
+		top: 12px;
+	}
+}
+
+@media screen and (max-width: 600px) and (min-width: 400px) {
+	#mtSettings .mr-l   {
+		width: 100%;
+		overflow: hidden;      
+	}
+	#mtSettings .mr-l div   {
+		width: 100%;
+		overflow: hidden;      
+	}
+	#mtSettings .mr-l div button { 
+		width: 97%;   
+	}
+}
+
+@media (max-width: 540px){
+	.devide {
+		width: 100%;
+	}
+	.mr-2 {
+		margin-right: 0;
+	}
+	.w-1170 {
+		padding: 0 10px;
+	}
+	.scroll {
+		width: 100%;
+	}
+	.accordian-plus-minus {
+		top: 10px;
+	}
+}
+
+@media (max-width: 500px){
+	.prepare-time{
+		font-size: 40px;
+	 }
+
+}
+
+@media (max-width: 425px){
+	[class*="ion-md-im-brandbubble"].f-8em, {
+		font-size: 0em;
+	}
+	.btn-148, .mr-l {
+		width: 100%; 
+		display: block;
+		margin: 0;
+	}
+	.pd-l {
+		padding: 0;
+	}
+	.item-md h2 {
+		font-size: 1.4rem;
+	}
+	.btn-148 .button-inner, .mr-t-10 .button-inner { 
+	 	font-size: 8px !important;
+	}
+
+	.prepare .button-inner{
+		font-size: 12px !important;
+	}
+	 
+
+}
+@media (max-width: 400px){
+	.btn-148 {
+	 	width: 95px !important;
+	 	margin-top: 10px !important;
+	 	height: 33px !important;
+	 }
+	.mr-l{
+	    display: flex;
+    	justify-content: space-around;
+	 }
+	 .add-br {
+	 	padding: 40px 10px; 
+	 }
+	 .meditation-time > div {
+	 	margin-top: 0 !important;
+	 }
+	 .meditation-time {
+	 	padding-top: 0 !important;
+	 	height: 170px !important;
+	 }
+	 .modal-content {
+	 	padding: 10px !important;
+	 }
+}
+@media screen and (max-width: 570px) and (min-width: 400px) {
+	#mtSettings .mr-l   {
+			width: 100%;
+			overflow: hidden;      
+	  }
+	#mtSettings .mr-l div   {
+			width: 100%;
+			overflow: hidden;      
+	  }
+}	

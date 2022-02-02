@@ -1,0 +1,86 @@
+<!-- Generated template for the ComponentsMeditationComponent component -->
+<ion-content>
+	<section class="modal-content"  text-center>
+		
+        <div class="main-model">
+			<div class="devide right-devide">
+				<ion-buttons end>
+		            <a href="javascript:void(0);" class="modal-close" (click)="dismiss()">
+		                <ion-icon ios="ios-close" md="md-close"></ion-icon>
+		            </a>
+		        </ion-buttons>
+				<ion-row class="add-br" id="meds-content">
+					<ion-col text-center col-lg-4 col-sm-4 col-12 id="mtSettings" *ngIf="!isRunning">
+						<ion-row>
+							<div class="mr-l"> 
+								<div class="">
+									<button (click)="settings(0)" ion-button col-12 full color="pink" class="prepare btn-148 mr-t-10" [ngClass]="btnIndex==0 ? 'pink-active' : 'btn-white'" round type="button">Prepare</button>
+									<div class="c-pink prepare-time" id="mtPrepareTimeSetting">{{meditationTimerCtrl?.getStepsTime('prepareTime')}}</div>
+								</div>
+								<div class="">
+									<button (click)="settings(1)"ion-button col-12 full color="pink" round type="button" class="prepare btn-148" [ngClass]="btnIndex==1 ? 'pink-active' : 'btn-white'">Meditation</button>
+									<div class="c-pink prepare-time" id="mtMeditationTimeSetting">{{meditationTimerCtrl?.getStepsTime('meditationTime')}}</div> 
+								</div>
+								<div class="">
+									<button (click)="settings(2)" ion-button col-12 full color="pink" round type="button" class="prepare btn-148" [ngClass]="btnIndex==2 ? 'pink-active' : 'btn-white'">Interval</button> 
+									<div class="c-pink prepare-time" id="mtIntervalTimeSetting">{{meditationTimerCtrl?.getStepsTime('intervalTime')}}</div>
+								</div>
+							</div>
+
+						</ion-row>
+					</ion-col>
+					<ion-col text-center col-lg-8 col-sm-8 col-12 class="D-block pd-0">
+						<ion-col col-lg-12 col-12 col-sm-12 class="D-block pd-0">
+							<div class="D-block">
+								<div text-center class="c-pink meditation-time" [ngClass]="!!isRunning?'playing':''">
+									<div class="time-set">
+										<img src='assets/images/up_icon.png' alt="up" *ngIf="!isRunning" (click)="timeArrowMinUpClick()" (mousedown)="timeArrowMinUpMouseDown()" (mouseup)="timeArrowMinUpMouseUp()" (mouseout)="timeArrowMinUpMouseOut()">
+										<p id="overAllMinutes">0</p>
+										<img src='assets/images/down_icon.png' alt="down" class="down-img" *ngIf="!isRunning" (click)="timeArrowMinDownClick()" (mousedown) ="timeArrowMinDownMouseDown()" (mouseup)="timeArrowMinDownMouseUp()" (mouseout)="timeArrowMinDownMouseOut()">
+									</div>
+									<div class="time-set">
+										<p class="seperator">:</p>
+									</div>
+									<div class="time-set">
+										<img src='assets/images/up_icon.png' alt="up" *ngIf="!isRunning" (click)="timeArrowSecUpClick()" (mousedown)="timeArrowSecUpMouseDown()" (mouseup)="timeArrowSecUpMouseUp()" (mouseout)="timeArrowSecUpMouseOut()">
+										<p id="overAllSeconds">30</p>
+										<img src='assets/images/down_icon.png' alt="down" class="down-img" *ngIf="!isRunning" (click)="timeArrowSecDownClick()" (mousedown)="timeArrowSecDownMouseDown()" (mouseup)="timeArrowSecDownMouseUp()" (mouseout)="timeArrowSecDownMouseOut()">
+									</div>
+								</div>
+								<div id="mtIntervalTime" class="c-pink" *ngIf="!!isRunning"></div>
+
+								<div class="mt-30" *ngIf="!isRunning" >
+									<button class="m-0-auto meditate" ion-button col-12 full round type="button" (click)="start($event)">Meditate</button>
+								</div>
+								<div  *ngIf="!!isRunning" class="mr-top">
+									<div col-12 col-lg-8 col-sm-8 col-12 class="mr-auto">
+										<button ion-button col-md-5 col-5 round type="button" (click)=" stop($event.target)" class="stop-btn">Stop</button>
+										<button ion-button col-md-5 col-5 round type="button" (click)="pause($event.target)" class="stop-btn">Pause</button>
+									</div>
+								</div>
+								<div [hidden]="true" id="audioContainer">
+									<audio controls id="audioChime_0">
+										<source>
+									  	Your browser does not support the audio element.
+									</audio>
+									<audio controls id="audioChime_1">
+										<source>
+									  	Your browser does not support the audio element.
+									</audio>
+									<audio controls id="audioChime_2">
+										<source>
+									  	Your browser does not support the audio element.
+									</audio>
+									<audio controls id="audioChime_3">
+										<source>
+									  	Your browser does not support the audio element.
+									</audio>
+								</div>
+							</div>
+						</ion-col>
+					</ion-col>
+				</ion-row>				
+			</div>
+		</div>
+	</section>
+</ion-content>

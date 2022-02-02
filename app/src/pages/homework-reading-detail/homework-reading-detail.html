@@ -1,0 +1,53 @@
+<!-- <ion-header>
+	<ion-navbar>
+		<ion-title text-center>Homework</ion-title>
+		<a menuToggle end float-right>
+			<ion-icon name="im-menu"></ion-icon>
+		</a>
+	</ion-navbar>
+</ion-header> -->
+<ion-header>
+	<ion-navbar>
+		<ion-title text-center>Homework</ion-title>
+		<a menuToggle end>
+			<ion-icon name="im-menu"></ion-icon>
+		</a>
+	</ion-navbar>
+</ion-header>
+<ion-content>
+
+	<section class="h-reading-detail" margin-bottom>
+		<ion-row class="w-1024" justify-content-center padding-left padding-right>
+			<div col-12 padding-bottom>
+				<h1 class="gray-text">
+					{{(full_detail?.title) ? full_detail?.title : ""}}
+				</h1>
+			</div>
+		</ion-row>
+		<ion-row class="w-1024 h-reading-detail-bg" *ngIf="(type=='reading')">
+			<div col-12 [innerHTML]="full_detail?.reading_detail"></div>
+		</ion-row>
+		<ion-row class="w-1024 h-reading-detail-bg" *ngIf="(type=='podcast')">
+			<div col-12 class="m-0-auto audios" padding>
+				<div margin-top padding-bottom>
+					<p class="gray-text">{{(full_detail?.script) ? full_detail?.script : ""}}</p>
+				</div>
+				<vg-player (onPlayerReady)="onPlayerReady($event)">
+					<vg-controls>
+						<vg-play-pause class="ion-md-im-brandbubble f-11em"></vg-play-pause>
+						<vg-time-display vgProperty="current" vgFormat="mm:ss"></vg-time-display>
+						<vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+						<vg-time-display vgProperty="total" vgFormat="mm:ss"></vg-time-display>
+						<div text-left class="read-script">
+							<vg-mute></vg-mute>
+						</div>
+					</vg-controls>
+
+					<audio #media [vgMedia]="media" id="myAudio" preload="auto">
+						<source [src]="full_detail?.url">
+					</audio>
+				</vg-player>
+			</div>
+		</ion-row>
+	</section>
+</ion-content>

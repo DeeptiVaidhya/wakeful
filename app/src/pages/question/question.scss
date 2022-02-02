@@ -1,0 +1,25 @@
+page-question {
+    .toolbar-title-md,
+    .toolbar-title-ios {
+        margin-top: 0;
+    }
+    textarea.text-input {
+        background: #FFF;
+        font-size: 1.7rem;
+    }
+    .question-no span {
+        top: 3.2rem !important
+    }
+    .gray-text{
+        text-transform: none !important
+    }
+    .toolbar-title-md,
+    .toolbar-title-ios {
+        margin-top: 0;
+    }
+    @media (max-width: 425px) {
+        textarea.text-input {
+            font-size: 1.5rem;
+        }
+    }
+}

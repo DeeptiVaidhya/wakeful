@@ -1,0 +1,14 @@
+<ion-navbar>
+	<ion-buttons left>
+		<button ion-button icon-only (click)="goBack()">
+			<ion-icon name="arrow-back"></ion-icon>
+		</button>
+	</ion-buttons>
+	<div text-center>
+		<img src="assets/images/logo.png" class="center-logo" alt="{{APPTITLE}}" />
+	</div>
+	<a menuToggle end class="menu-btn">
+		<ion-icon name="im-menu"></ion-icon>
+		<span *ngIf="notificationCount > 0"  class="red-dot"></span>
+	</a>
+</ion-navbar>

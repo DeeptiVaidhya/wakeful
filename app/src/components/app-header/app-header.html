@@ -1,0 +1,11 @@
+<!-- Generated template for the AppHeaderComponent component -->
+<ion-navbar>
+    <span text-center float-left *ngIf="isShownImage">
+		<img class="center-logo" src='assets/images/logo.png' alt="Wakeful" />
+	</span>
+    <ion-title text-center> {{title}} </ion-title>
+    <a menuToggle end class="menu-btn">
+        <ion-icon name="im-menu" ></ion-icon>
+        <span class="{{notificationCount > 0 ? 'red-dot' : ''}}"></span>
+    </a>
+</ion-navbar>

@@ -1,0 +1,50 @@
+<ion-header>
+    <app-header [title]="title"></app-header>
+</ion-header>
+<ion-content [style.backgroundImage]="'url('+bg_image+')'">
+    <section class="w-1024 p-0-mob m-t-10">
+        <ion-list inset class="btn-list mt-70">
+            <p class="text-light-gray mob-p-l-r" text-center padding-bottom>Videos from this week's class can be reviewed below.</p>
+            <div *ngIf="!REVISIT_CLASS">
+                <!-- <ion-item detail-push ion-item *ngFor="let review of reviewlist" (click)="review.status && reviewDeatil(review.id)" [class.active]="review.status==1">
+                    <h2>{{ review.class_title }}</h2>
+                    <ion-icon color="primary" name="ios-arrow-forward" item-right *ngIf="review.status==1"></ion-icon>
+                    <ion-icon color="gray" name="ios-lock-outline" item-right *ngIf="review.status==0"></ion-icon>
+                </ion-item> -->
+
+                <ion-row class="tile_list" *ngFor="let review of reviewlist" [ngClass]="review.status==0 ? 'tile-disabled' : '' " (click)="review.status > 0 && reviewDeatil(review.id)" [class.active]="review.status==1">
+                    <div [ngClass]="{disabledNoOfCasesDiv: isDisabled}">
+                        <ion-col>
+                            <ion-item color="primary" text-center style="background: #FFF">
+                                <span class="f_18">{{ review.class_title }}</span>
+                            </ion-item>
+                            <div>
+                                <img src="{{ review.url }}" />
+                            </div>
+                        </ion-col>
+                    </div>
+                   
+                </ion-row>
+
+            </div>
+            <div *ngIf="REVISIT_CLASS">
+                <!-- <ion-item detail-push ion-item *ngFor="let review of reviewlist" (click)="reviewDeatil(review.id)" [class.active]="review.status==1">
+                    <h2>{{ review.class_title }}</h2>
+                    <ion-icon color="primary" name="ios-arrow-forward" item-right></ion-icon>
+                </ion-item> -->
+                <ion-row class="tile_list" *ngFor="let review of reviewlist" (click)="review.status && reviewDeatil(review.id)" [ngClass]="review.status==0 ? 'tile-disabled' : '' "  [class.active]="review.status==1">
+                    <div class="d-flex">
+                        <ion-col>
+                            <ion-item color="primary" text-center style="background: #FFF">
+                                <span class="f_18">{{ review.class_title }}</span>
+                            </ion-item>
+                            <div>
+                                <img src="{{ review.url }}" />
+                            </div>
+                        </ion-col>
+                    </div>
+                </ion-row>
+            </div>
+        </ion-list>
+    </section>
+</ion-content>

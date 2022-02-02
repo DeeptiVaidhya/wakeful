@@ -1,0 +1,109 @@
+
+
+modal {
+    .modal-content .main-model .btn-close { 
+        width: 300px !important;
+        height: 44px !important;
+        font-size: 13px !important;
+        line-height: 26px !important;
+        padding: 20px;
+    }
+    .modal-close {
+        color:#242424;
+        position: absolute;
+        right: 30px;
+        top: 30px;
+        z-index: 99999;
+        font-size: 30px;
+        font-weight: bold;
+    }
+    .modal-content {
+        color: #FFF;
+        padding: 10rem;    
+        background: #DC78AE;
+    }
+    .modal-content h5 {
+        line-height: 2.5rem;
+    }
+    .modal-content h1 {
+        font-weight: 900;
+        font-size: 4.2rem;
+    }
+    .scroll-content {
+        padding: 0;
+        
+    }
+    .main-model {
+        width: 100%;
+        height: auto;
+        padding: 0 15px;
+    }
+    .f-26 {
+        font-size: 18px !important;
+        line-height: 35px !important;
+        margin-top: 39px;
+    }
+    
+
+    /* Scrollbar Styling */
+    .main-model::-webkit-scrollbar {
+        width: 8px;
+    }
+    
+    .main-model::-webkit-scrollbar-track {
+        background-color: #dc78ae;
+        -webkit-border-radius: 10px;
+        border-radius: 10px;
+    }
+
+    .main-model::-webkit-scrollbar-thumb {
+        -webkit-border-radius: 10px;
+        border-radius: 10px;
+        background: #c5508f; 
+    }
+    
+    @media (max-width: 768px) {
+        .modal-content h1 {
+            font-size: 3rem;
+            margin: 0;
+            line-height: 40px;
+        }
+        .modal-content {
+            padding: 15px 10px;
+            height: 100%;
+        }
+        .modal-close {
+            color:#242424;
+            position: absolute;
+            right: 5%;
+            top: 5px;
+            z-index: 99999;
+            font-size: 30px;
+            font-weight: bold;
+        }
+    }
+    @media (max-width: 500px) {
+        modal .modal-content {
+            color: #FFF;
+            padding: 10rem;
+            height: auto;
+        }
+
+        .modal-close {
+            color:#242424;
+            position: absolute;
+            right: 5%;
+            top: 5px;
+            z-index: 99999;
+            font-size: 30px;
+            font-weight: bold;
+        }
+        
+        .modal-content {
+            padding: 15px 10px;
+            height: auto !important;
+        }
+        
+    }
+    
+}

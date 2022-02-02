@@ -1,0 +1,111 @@
+page-overview {
+    ion-item {
+        background-color: transparent !important;
+        border: 0px none !important;
+    }
+    ion-list ion-label.label {
+        white-space: normal;
+        padding: 0;
+        margin: 0;
+    }
+    .scroll-content {
+        background: #f5f5f5;
+    }
+    .sub-heading ion-icon {
+        margin: 0 !important;
+        cursor: pointer;
+    }
+    ion-list ion-item .input-wrapper{
+        border-bottom:1px solid #ddd;
+    }
+    .static-row-white{
+        padding-bottom:50px;
+    }
+    .w-900 {
+      max-width: 920px; 
+      margin: 0 auto;
+      width: 100%;
+      display: block;
+      padding: 0 15px;
+    }
+    .head {
+        background: #dd77ac;
+        height: 150px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #FFF;
+    }
+    .gray-text {
+        font-size: 14px;
+        text-align: left;
+        padding-top: 0 !important;
+        letter-spacing: 0;
+    }
+    .head h1 {
+        font-weight: bold;
+        font-size: 52px;
+        margin: 0; 
+    }
+    .right {
+        float: right;
+    }
+    .grid {
+        padding: 0px 10px 40px 10px;
+    }
+    .sub-heading {
+        padding-right: 0;
+        line-height: 35px;
+        font-size: 25px;
+        margin-bottom: 40px !important;
+        margin-top: 40px !important;
+        text-align: left;
+        letter-spacing: 0;
+    }
+    ion-list ion-icon {
+        padding-right: 15px;
+    }
+    .ion-ios-arrow-down, .ion-ios-arrow-up {
+        font-size: 21px !important;
+    }
+    @media (max-width: 540px) {
+    .head h1 {
+            font-size: 32px;
+        }
+    }
+    @media (max-width: 767px) {
+        ion-icon.c-pink{
+            float: right;
+        }
+        .static-row-white {
+            padding-bottom: 0;
+        }
+        .sub-heading{
+            font-size: 2rem;
+            padding-left: 20px;
+        }
+        .gray-text {
+            padding-left: 20px;
+        }
+        .sub-heading strong{
+            float: left;
+            width: 90%;
+        }
+        .sub-heading ion-icon{
+            float: right;
+            width: 10%;
+            text-align: right;
+        }
+        .toggle-cont{
+            float: left;
+            width: 100%;
+        }
+        .head h1 {
+            font-size: 32px;
+            text-align: center;
+        }
+    }
+    
+}
+

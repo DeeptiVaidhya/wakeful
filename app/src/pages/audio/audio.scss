@@ -1,0 +1,22 @@
+page-audio {
+    .toolbar-title-md,
+    .toolbar-title-ios {
+        margin-top: 0;
+    }
+
+    vg-controls{
+    	background-size: 300px !important;
+    	background-position: center 70px !important;
+    }
+    .videos .read-script, .audios .read-script {
+        background: #ffffff;
+        padding: 0 20px;
+    }
+    @media(max-width: 425px){
+    	vg-controls {
+    		background-size: 250px !important;
+    		background-position: center 0 !important;
+    	}
+    }
+}
+vg-time-display[vgProperty="total"]{right:5px !important}

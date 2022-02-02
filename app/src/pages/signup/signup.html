@@ -1,0 +1,90 @@
+<ion-header>
+	<ion-navbar></ion-navbar>
+</ion-header>
+<ion-content padding class="container">
+	<section class="w-1024">
+		<div col-lg-5 col-12 class="m-0-auto">
+			
+			<form [formGroup]="signupForm" (ngSubmit)="signup()" autocomplete="off">
+				<ion-row>
+
+					<ion-label stacked>ACCESS TOKEN</ion-label>
+					
+					<ion-item>
+						<ion-input formControlName="token" trim id="token" type="text" [disabled]="register_token ? true : false" value="{{register_token}}" [class.invalid]="!signupForm.controls.token.valid && (signupForm.controls.token.dirty || submitAttempt)"
+							(focus)="isTouched('token',true)" (focusout)="isTouched('token',false)"></ion-input>
+						
+					</ion-item>
+					<ion-label stacked>EMAIL ADDRESS</ion-label>
+					<ion-item>
+						
+						<ion-input formControlName="email" id="email" type="text" [disabled]="email ? true :false" value="{{email}}" ></ion-input>
+						<ion-icon name="checkmark" item-right color="green" *ngIf="signupForm.controls['email'].valid && is_unique_email"></ion-icon>
+					</ion-item>
+
+					<p class="error m-0-auto" col-12 ion-text color="danger" *ngIf="signupForm.controls['email'].hasError('required') && signupForm.controls['email'].touched && !signupForm.controls['email'].hasFocus">Email field is required.</p>
+					<p class="error m-0-auto" col-12 ion-text color="danger" *ngIf="signupForm.controls['email'].hasError('pattern') && signupForm.controls['email'].touched && !signupForm.controls['email'].hasFocus">Please enter a valid email.</p>
+					<p class="error m-0-auto" col-12 ion-text color="danger" *ngIf="!is_unique_email && !signupForm.controls['email'].hasError('pattern') && !signupForm.controls['email'].hasFocus">{{is_unique_email_msg}}</p>
+
+					<ion-label stacked>CHOOSE A USERNAME</ion-label>
+					<ion-item>
+						<ion-input formControlName="username" trim="blur" id="username" type="text" (blur)="isUsernameUnique($event.target.value)"
+						 [class.invalid]="!signupForm.controls.username.valid && (signupForm.controls.username.dirty || submitAttempt)" (focus)="isTouched('username',true)"
+						 (focusout)="isTouched('username',false)"></ion-input>
+						<ion-icon name="checkmark" item-right color="green" *ngIf="signupForm.controls['username'].valid && is_unique_username"></ion-icon>
+					</ion-item>
+
+					
+					<p class="error m-0-auto" col-12 ion-text color="danger" *ngIf="signupForm.controls['username'].hasError('required') && signupForm.controls['username'].touched && !signupForm.controls['username'].hasFocus">Username field is required.</p>
+					<p class="error m-0-auto" col-12 ion-text color="danger" *ngIf="signupForm.controls['username'].hasError('pattern') && signupForm.controls['username'].touched && !signupForm.controls['username'].hasFocus">Please enter a valid username.</p>
+					<p class="error m-0-auto" col-12 ion-text color="danger" *ngIf="!is_unique_username && !signupForm.controls['username'].hasFocus">{{is_unique_username_msg}}</p>
+
+					<ion-label stacked>CHOOSE A PASSWORD</ion-label>
+					<ion-item>
+						<ion-input formControlName="password" id="password" type="password" [class.invalid]="!signupForm.controls.password.valid && (signupForm.controls.password.dirty || submitAttempt)"
+						 (focus)="isTouched('password',true)" (focusout)="isTouched('password',false)"></ion-input>
+						<ion-icon name="checkmark" item-right color="green" *ngIf="signupForm.controls['password'].valid"></ion-icon>
+					</ion-item>
+
+					<p class="error m-0-auto" col-12 ion-text color="danger" *ngIf="signupForm.controls['password'].hasError('required') && signupForm.controls['password'].touched && !signupForm.controls['password'].hasFocus">Password field is required.</p>
+					<p class="error m-0-auto" col-12 ion-text color="danger" *ngIf="signupForm.controls['password'].hasError('pattern') && signupForm.controls['password'].touched && !signupForm.controls['password'].hasFocus">The password must be alphanumeric, 1 uppercase letter and 1 special character ({{allowed_symbol}}).</p>
+
+					<ion-label stacked>CONFIRM PASSWORD</ion-label>
+					<ion-item>
+						<ion-input formControlName="confirm_password" id="confirm_password" type="password" [class.invalid]="!signupForm.controls.confirm_password.valid && (signupForm.controls.confirm_password.dirty || submitAttempt)"
+						 (focus)="isTouched('confirm_password',true)" (focusout)="isTouched('confirm_password',false)"></ion-input>
+						<ion-icon name="checkmark" item-right color="green" *ngIf="(!signupForm.hasError('mismatchedPasswords') && signupForm.controls.confirm_password.valid)"></ion-icon>
+					</ion-item>
+					<ion-input formControlName="id" type="hidden" value="{{id}}" ></ion-input>
+					<p class="error m-0-auto" col-12 ion-text color="danger" *ngIf="signupForm.hasError('mismatchedPasswords') && signupForm.controls.confirm_password.valid && (!signupForm.controls['confirm_password'].hasFocus && !signupForm.controls['password'].hasFocus)">
+						Please enter a valid confirm password.
+					</p>
+					<p class="error m-0-auto" col-12 ion-text color="danger" *ngIf="signupForm.controls['confirm_password'].hasError('required') && signupForm.controls['confirm_password'].touched && (!signupForm.controls['confirm_password'].hasFocus && !signupForm.controls['password'].hasFocus)">Confirm password field is required.</p>
+				</ion-row>
+				
+						<ion-row>
+							<div col-1>
+								<ion-checkbox color="dark" slot="start" formControlName="term_condition" id="term_condition"></ion-checkbox>
+							</div>
+							<div col-11>
+								<ion-label for="term_condition" class="check-label">I agree to Wakeful’s <br> <a href="javascript:void(0)" (click)="showAlert(description.script,description.description)">self-care terms and conditions.</a></ion-label>
+							</div>
+							
+							<p class="error m-0-auto" col-12 ion-text color="danger" *ngIf="signupForm.controls['term_condition'].hasError('required') && signupForm.controls['term_condition'].touched && !signupForm.controls['term_condition'].hasFocus">Please agree the term and condition first.</p>
+						</ion-row>
+			
+				<div padding-top>
+					<div padding-top padding-bottom text-center>
+						<button ion-button col-12 round class="submit-btn" full color="primary" [disabled]="!(signupForm.valid && is_unique_username)">SIGN UP</button>
+					</div>
+					<div text-center>
+						<strong>
+							<span class="gray-text">Already have an account?</span>
+							<a [navPush]="signInPage">Sign in</a>
+						</strong>
+					</div>
+				</div>
+			</form>
+		</div>
+	</section>
+</ion-content>

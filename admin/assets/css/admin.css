@@ -1,0 +1,251 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 5 Oct, 2017, 6:34:11 PM
+    Author     : Ideavate
+*/
+
+/*start login*/
+
+.login-page{margin: 35px auto;width: 400px;}
+.login-bg{background-color: #fff;border: 1px solid #e8e8e8;border-radius: 4px;padding: 0 10px;}
+.login-page .col-md-12.form-group.has-feedback{padding-bottom: 10px;}
+.login-logo{text-align: center;padding-bottom: 20px;}
+.login-logo img{width: 85px;}
+.login-bg h3{color: #8d8d8d;font-size: 24px;font-weight: bold;margin: 20px 0;}
+
+.media .date {background-color: #fff0f5;border: 1px solid #e4b9cc;}
+.media .date .day, .media .date .month, .tile-stats h3 {color: #cb5c62;}
+/*end login*/
+
+/*start 3 step*/
+
+.step-2-right{background-color: #fafafa;border: 1px solid #e4e4e4;border-radius: 4px;}
+.step-2-right h4{font-size: 16px;padding:0px 15px 0;font-weight: bold;color: #303030;}
+.step-2-right ul {padding: 0px;}
+.step-2-right ul li {list-style: outside none none;margin: 0 15px 0px;}
+.step-2-right ul li a{color: #555;display: block;font-size: 14px;padding: 4px 10px;}
+
+.step-2-right ul li a.active{color: #e355a3;}
+
+/*
+.step-3-right{background-color: #fafafa;border: 1px solid #e4e4e4;border-radius: 4px;}
+.step-3-right h4{font-size: 16px;padding:0px 15px 0;font-weight: bold;color: #303030;}
+.step-3-right ul {padding: 0px;}
+.step-3-right ul li {background-color: #fff;border: 1px solid #e4e4e4;list-style: outside none none;margin: 0 15px 5px;}
+.step-3-right ul li a{color: #555;display: block;font-size: 14px;padding: 4px 10px;}
+.step-3-right li a:hover {cursor: move;background-color: #f3f3f3;}
+.step-3-right ul li a i{float: right;margin-top: 3px;font-size: 12px;}*/
+.input-file{border: 1px dashed #b2b2b2;display: block;padding: 4px;width: 100%;height: auto;}
+/*end 3 step*/
+.hide {
+  display: none;
+}
+/*start step 3 popup*/
+.reorder-popup h4{font-size: 14px;}
+.c-black{color:#555;}
+.popup-cont-img{width: 80px; border:1px solid #ddd; border-radius: 4px;}
+.classes-bg{width: 100%;margin: 0 0 20px 0;border-radius: 4px;color:#fff;}
+.bg-general{background-color: #66bfcd;}     
+.bg-audio{background-color: #77c29b;}     
+.bg-video{background-color: #f18abe;}     
+.bg-question{background-color: #667bcd;}     
+.bg-topic{background-color: #f57273;}     
+.bg-testimonial{background-color: #e4ba16;}
+.bg-intention{background-color: #dca58c;}
+
+.classes-bg p {margin: 30px auto;text-align: center;width: 100%;text-overflow: ellipsis;white-space: nowrap;overflow: hidden;padding: 0 15px;}	
+.classes-bg span{text-align: center;width: 100%;float: left;font-size: 25px;padding-top: 15px;}
+/*.table tbody tr td a i{font-size: 14px;margin: 0 0 0 5px;}		*/
+
+/*end step 3 popup*/
+
+/*start list user*/
+.user-full-detail-popup .modal-header{padding-top: 5px; padding-bottom: 5px;}
+.user-full-detail-popup .modal-header img{float: left;margin-right: 10px;vertical-align: middle;width: 45px;}
+.user-full-detail-popup .modal-header h4{margin-top: 10px;}
+.user-full-detail-popup .modal-header button{margin-top: 10px;}
+.add-more-item{border-bottom: 1px solid #ddd; margin: 0 0 15px 0} 
+.add-more-item:last-child{border-bottom: 0px none;} 
+/*end list user*/
+
+.profile-img-container {position: relative;display: inline-block;overflow: hidden;}
+
+.profile-img-container img {width:100%;transition: all .50s ease-in;-moz-transition: all .50s ease-in;-webkit-transition: all .50s;} /* remove if using in grid system */
+
+
+.profile-img-container:hover img {opacity: 0.35;}
+.profile-img-container:hover a {opacity: 1;top: 0;z-index: 500;}
+/* added */
+.profile-img-container:hover a span {top: 50%;position: absolute;left: 0;right: 0;transform: translateY(-50%);color:#555;}
+/* added */
+.profile-img-container a {display: block;position: absolute;top: -100%;opacity: 0;left: 0;bottom: 0;right: 0;text-align: center;color: inherit;}
+.breadcrumb {background: #fff none repeat scroll 0 0;display: inline-block;margin: 8px 0;}
+
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {vertical-align: middle;}
+
+.im-tab .im-tab-content:not(.active){display: none;}
+.step-2-right .list-group>a.active:before{content: '';position: absolute;left: -10px;top: 50%;margin-top: -13px;border-left: 0;border-bottom: 13px solid transparent;
+                                          border-top: 13px solid transparent;border-right: 10px solid #604a70;}
+.step-2-right .list-group-item{border-left: 0px none;border-right: 0px none;padding-left: 0}
+@media (max-width:767px){
+    .step-2-right>h4,.step-2-right .list-group-item{text-align: center;padding:5px 0}
+}
+.step-2-right .list-group{margin-bottom: 0;}
+.step-2-right .list-group-item.active, .step-2-right .list-group-item.active:focus, .step-2-right .list-group-item.active:hover {background-color: #604a70;border-color: #604a70;}
+.step-2-right .list-group-item i{font-size: 18px;line-height: 24px;padding: 0 15px;width: 45px;}
+@media  (max-width:450px){
+    .step-2-right .list-group-item i {font-size: 18px;line-height: 16px;padding: 0;width: auto;}
+}
+
+@media (max-width: 2000px){
+    body {max-width: 2000px;margin: 0 auto;border: 1px solid #e2e2e2;}
+}
+
+table td i.fa{font-size: 16px;margin-right: 10px;}
+.x_title h3{float: left;}
+.x_title h2{float: left;}
+.ui-sortable-handle:hover {cursor: move;}
+
+/** Add More Items */
+.item-details {border-bottom: 1px solid #d8d7d7;margin: 10px 0;}
+.item-details:last-child {border-bottom: 0 none;}
+
+/** Row Reorder CSS */
+table.dt-rowReorder-float{position:absolute !important;opacity:0.8;table-layout:fixed;outline:2px solid #888;outline-offset:-2px;z-index:2001}
+tr.dt-rowReorder-moving{outline:2px solid #555;outline-offset:-2px}
+body.dt-rowReorder-noOverflow{overflow-x:hidden}
+table.dataTable td.reorder{text-align:center;cursor:move}
+
+.close-btn{position: absolute;right: -6px;top: -10px;cursor: pointer;font-size: 15px;float:right;color: #d9534f;}
+.close-btn:hover, .close-btn:focus {color:#c9302c;}
+audio,video{border: 2px solid #ECECEC;width: 100%;}
+.w-100px{width:100px}
+.audio-del-btn {
+    position: absolute;
+    left: -24px;
+    right: 0;
+    font-size: 16px;
+    z-index: 9;
+}
+
+.box-image{
+    width: 100px;
+}
+.formOverlay {
+    background-color: #000;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    opacity: 0.8;
+    color: #FFF;
+    font-size: 30px;
+    padding-top: 10%;
+    text-align: center;
+}
+
+.small-link {
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 30px;
+    margin: 15px 0;
+    display: block;
+    color: #d45496;
+    text-decoration: underline;
+}
+.x_title {
+    border-bottom: 2px solid #dd77ac;
+    padding: 1px 5px 6px;
+}
+.x_title h3 {
+    float: left;
+    font-size: 18px;
+    font-weight: bold;
+}
+#editParticipant .form-group {
+    margin-right: 0;
+    margin-left: 0;
+    border-bottom: 1px solid #e4e4e4;
+    padding: 10px 0;
+    font-size: 16px;
+} 
+#editParticipant .form-group label {
+	padding: 0;
+}
+
+.link-bg {
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #e4e4e4;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+.small-link:hover, .small-link:focus{
+    color:#371f4a;
+}
+.profile-tab{
+	list-style: none;
+}
+.profile-tab li{
+	display: inline-block;
+    position: relative;
+}
+.profile-tab li a{
+	display: inline-block;
+	text-decoration: underline !important;
+    font-size: 16px;
+	color: #7a6488;
+	padding: 10px 15px;
+
+}
+
+#progress .form-group .control-label {
+    font-size: 16px;
+    text-align: left;
+    padding: 0;
+}
+
+#progress .form-group {
+    border-bottom: 1px solid #ccc;
+    padding: 15px 0;
+    margin-bottom: 0;
+}
+
+#progress .form-group span{
+	font-size: 16px;
+}
+
+.homework-dropdown{
+	background: #ffffff;
+    padding: 0;
+    width: 200px;
+    position: absolute;
+    top: 70%;
+    left: 0;
+	z-index: 999;
+}
+.homework-dropdown li{
+	display: block !important;
+}
+.homework-dropdown li a{
+	color: #7a6488;
+	padding: 10px 15px;
+	font-size: 14px;
+	text-align: left;
+	display: block !important;
+	text-decoration: none !important;	
+	border-bottom: 1px solid #7a648845;
+	box-shadow: 0 0 5px #ccc
+}
+
+.class_tile_img{
+    width: 50%;
+}
+

@@ -1,0 +1,87 @@
+.tabbar.show-tabbar {
+    background: #fff;
+    justify-content: center;
+}
+
+// .bg-transparent .tabbar.show-tabbar {
+//     background: transparent;
+// }
+.tab-button {
+    max-width: 200px;
+    width: 200px;
+}
+
+.tab-button-icon {
+    padding-top: 8px !important;
+}
+
+.tab-button-text {
+    text-transform: uppercase !important;
+    font-weight: 900;
+    font-size: 1rem !important;
+    -webkit-transform: none !important;
+    transform: none !important;
+    border-bottom: 4px solid transparent;
+}
+
+.tab-button .button-effect {
+    opacity: 1 !important;
+}
+
+.tabs-ios .tab-button-icon {
+    font-size: 2rem !important;
+}
+
+.tab-button[aria-selected=true] span {
+    border-bottom: 4px solid;
+    width: auto;
+    padding: 0 6px 6px;
+    margin-bottom: -4px;
+}
+
+@media (max-width:767px) {
+    .tab-button[aria-selected=true] span {
+        margin-bottom: 0;
+        padding-bottom: 6px;
+    }
+    .tab-button span {
+        padding-bottom: 8px;
+    }
+}
+
+ion-tabs.hidden div.tabbar {
+    display: none;
+}
+
+ion-tabs.hidden .scroll-content {
+    margin-bottom: 0 !important;
+}
+
+
+/*
+ion-tabs[tabs-only]:first-child {
+    margin-top: 20px;
+}*/
+
+
+/*
+ion-tabs[im-tabs] {
+    margin:0 auto;max-width:1024px;
+    background: #fff;contain:none
+}
+
+ion-tabs[im-tabs],
+ion-tabs[im-tabs] .tabbar {
+    position: relative;
+    top: auto;
+    height: auto;
+    visibility: visible;
+    opacity: 1;
+    
+}*/
+
+@media (max-width: 425px) {
+    .tab-button-text {
+        font-size: .7rem !important;
+    }
+}

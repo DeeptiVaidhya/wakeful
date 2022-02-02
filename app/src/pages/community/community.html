@@ -1,0 +1,84 @@
+<ion-header>
+    <app-header [title]="title"></app-header>
+  </ion-header>
+  
+  <ion-content [style.backgroundImage]="'url('+bg_image+')'">
+    <section class="w-1024 p-0-mob m-t-10">
+        <div padding-top>
+            <breadcrumb [data]="breadcrumb"></breadcrumb>
+        </div>
+        <ion-list inset class="btn-list">
+            <p class="text-light-gray  mob-p-l-r t-c-mob" text-center padding-bottom>Here are some popular class topic that other users are currently discussing.</p>
+            <div *ngIf="!REVISIT_CLASS">
+                <ion-item *ngFor="let community of communityList; let i=index" text-wrap (click)="(community.status && toggleGroup(i))" [class.open]="isGroupShown(i)"
+                 [class.active]="community.status">
+                    <div>
+                        <h2>
+                            <strong>{{ community.title }}</strong>
+                        </h2>
+                    </div>
+                    <span class="accordian-plus-minus" *ngIf="community.status==1">
+                        <ion-icon padding-right item-right color="primary" [name]="isGroupShown(i) ? 'remove' : 'add'" class="icon-add-min"></ion-icon>
+                    </span>
+                    <ion-icon padding-right color="gray" name="ios-lock-outline" item-right *ngIf="community.status==0"></ion-icon>
+                    <!-- <ion-icon class="icon-gray" [name]="isGroupShown(i) ? 'remove' : 'add'" name="add" item-right *ngIf="homework.status==1"></ion-icon> -->
+  
+                    <div *ngIf="isGroupShown(i)" class="accordian-oppen-bg">
+                        <ion-list inset>
+                            <ion-item style="padding:0" detail-push ion-item *ngFor="let pages of community.list" (click)="getCommunityTopic(pages.page_data)">
+                                <!-- <div class="accordian-text">
+                                    <h2>
+                                        <strong>{{ pages.title }}</strong>
+                                    </h2>
+                                </div> -->
+                                <div class="accordian-text">
+                                    <h2>
+                                        <strong>{{ pages.page_data['question_text'] }}</strong>
+                                    </h2>
+                                </div>
+                                <!-- <p class="overflow-text">{{ pages.page_data['question_text'] }}</p> -->
+                                <ion-icon padding-right color="primary" name="ios-arrow-forward" item-right></ion-icon>
+                            </ion-item>
+                        </ion-list>
+                    </div>
+                </ion-item>
+            </div>
+  
+  
+            <div *ngIf="REVISIT_CLASS">
+                <ion-item *ngFor="let community of communityList; let i=index" text-wrap (click)="(toggleGroup(i))" [class.open]="isGroupShown(i)"
+                 [class.active]="community.status">
+                    <div>
+                        <h2>
+                            <strong>{{ community.title }}</strong>
+                        </h2>
+                    </div>
+                    <span class="accordian-plus-minus">
+                        <ion-icon padding-right item-right color="primary" [name]="isGroupShown(i) ? 'remove' : 'add'" class="icon-add-min"></ion-icon>
+                    </span>
+                    <div *ngIf="isGroupShown(i)" class="accordian-oppen-bg">
+                        <ion-list inset>
+                            <ion-item style="padding:0" detail-push ion-item *ngFor="let pages of community.list" (click)="getCommunityTopic(pages.page_data)">
+                                <!-- <div class="accordian-text">
+                                    <h2>
+                                        <strong>{{ pages.title }}</strong>
+                                    </h2>
+                                </div> -->
+                                <div class="accordian-text">
+                                    <h2>
+                                        <strong>{{ pages.page_data['question_text'] }}</strong>
+                                    </h2>
+                                </div>
+                                <!-- <p class="overflow-text">{{ pages.page_data['question_text'] }}</p> -->
+                                <ion-icon padding-right color="primary" name="ios-arrow-forward" item-right></ion-icon>
+                            </ion-item>
+                        </ion-list>
+                    </div>
+                </ion-item>
+            </div>
+  
+        </ion-list>
+  
+    </section>
+  </ion-content>
+  

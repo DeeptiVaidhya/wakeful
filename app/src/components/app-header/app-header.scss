@@ -1,0 +1,24 @@
+app-header {
+    .menu-btn {
+        font-size: 1.4em;
+        padding-right: 8px;
+    }
+    .center-logo {
+        width: 32px;
+        margin-left: 4px;
+        margin-top: 6px;
+    }
+    .toolbar-background-ios {
+        border: 0px none !important;
+    }
+    .red-dot {
+        height: 15px;
+        width: 15px;
+        background-color: red;
+        border-radius: 50px;
+        position: absolute;
+        top: -3px;
+        right: 5px;
+    
+    }
+}

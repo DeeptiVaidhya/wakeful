@@ -1,0 +1,27 @@
+breadcrumb {
+    ul {
+        list-style: none;
+        padding: 0;
+    }
+    li {
+        text-transform: uppercase;
+    }
+    li {
+        color: #727272;
+        position: relative;
+        letter-spacing: 1px;
+        display: inline-block;
+        padding-right: 15px;
+        font-weight: 900;
+        font-size: 1rem;
+    }
+    li:not(:last-child):after {
+        content: ">";
+        position: absolute;
+        margin: 0 5px;
+        top: -1px;
+    }
+    li:last-child {
+        color: #000;
+    }
+}

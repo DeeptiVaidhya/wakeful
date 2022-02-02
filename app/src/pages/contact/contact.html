@@ -1,0 +1,82 @@
+<!--
+  Generated template for the ContactUs page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-header>
+	<back-static-header></back-static-header>
+</ion-header> 
+
+<ion-content>
+	<!-- <section class="bg-pink">
+		<ion-row justify-content-center>
+			<ion-col>
+				<h1 class="static-headings">Contact us</h1>
+			</ion-col>
+		</ion-row>
+	</section> -->
+	<ion-row>
+        <div class="head">
+            <h1>Contact Us</h1>
+        </div>
+    </ion-row>
+	<section class="w-750">
+		<ion-row>
+			<ion-grid text-center col-lg-12 col-md-12 col-12>
+				<p class="gray-text text-left">If you have any other inquiries for us that are not covered in our <span class="color">Program Overview</span> or <span class="color">Feedback sections</span>, please feel free to contact us below.</p>
+				<div>
+					<form class="contact-form" [formGroup]="form" (ngSubmit)="contactUs()" autocomplete="off">
+						<ion-row>
+							<ion-col col-12 class="sub-heading">
+								<strong>What is your name?</strong>
+							</ion-col>
+							<ion-col col-12>
+								<ion-item>
+									<ion-input placeholder="Enter your first name" value="" (focus)="isTouched('first_name',true)" (focusout)="isTouched('first_name',false)"
+									 formControlName="first_name" id="first_name" type="text" [class.invalid]="!form.controls.first_name.valid && (form.controls.first_name.dirty)"></ion-input>
+								</ion-item>
+								<p class="error" col-12 ion-text color="danger" *ngIf="form.controls['first_name'].hasError('required') && form.controls['first_name'].touched && !form.controls['first_name'].hasFocus">First name field is required.</p>
+								<p class="error" col-12 ion-text color="danger" *ngIf="form.controls['first_name'].hasError('pattern') && form.controls['first_name'].touched && !form.controls['first_name'].hasFocus">Please enter a valid first name.</p>
+							</ion-col>
+							<ion-col col-12>
+								<ion-item>
+									<ion-input placeholder="Enter your last name" value="" (focus)="isTouched('last_name',true)" (focusout)="isTouched('last_name',false)"
+									 formControlName="last_name" id="last_name" type="text" [class.invalid]="!form.controls.last_name.valid && (form.controls.last_name.dirty)"></ion-input>
+								</ion-item>
+								<p class="error" col-12 ion-text color="danger" *ngIf="form.controls['last_name'].hasError('required') && form.controls['last_name'].touched && !form.controls['last_name'].hasFocus">Last name field is required.</p>
+								<p class="error" col-12 ion-text color="danger" *ngIf="form.controls['last_name'].hasError('pattern') && form.controls['last_name'].touched && !form.controls['last_name'].hasFocus">Please enter a valid last name.</p>
+							</ion-col>
+							<ion-col col-12 class="next-sub-heading">
+								<strong>What is your email address?</strong>
+							</ion-col>
+							<ion-col col-12>
+								<ion-item>
+									<ion-input placeholder="Enter your email address" value="" (focus)="isTouched('email',true)" (focusout)="isTouched('email',false)"
+									 formControlName="email" id="email" type="text" [class.invalid]="!form.controls.email.valid && (form.controls.email.dirty)"></ion-input>
+								</ion-item>
+								<p class="error" col-12 ion-text color="danger" *ngIf="form.controls['email'].hasError('required') && form.controls['email'].touched && !form.controls['email'].hasFocus">Email field is required.</p>
+								<p class="error" col-12 ion-text color="danger" *ngIf="form.controls['email'].hasError('pattern') && form.controls['email'].touched && !form.controls['email'].hasFocus">Please enter a valid email.</p>
+							</ion-col>
+							<ion-col col-12 class="next-sub-heading">
+								<strong>What would you like to ask us today?</strong>
+							</ion-col>
+							<ion-col col-12 textarea>
+								<ion-item>
+									<ion-textarea class="" text-center rows=10 padding placeholder="Your answer goes here" class="text-input" (focus)="isTouched('message',true)"
+									 (focusout)="isTouched('message',false)" formControlName="message" id="message" [class.invalid]="!form.controls.message.valid && (form.controls.message.dirty)"></ion-textarea>
+								</ion-item>
+								<p class="error" col-12 ion-text color="danger" *ngIf="form.controls['message'].hasError('required') && form.controls['message'].touched && !form.controls['message'].hasFocus">Message field is required.</p>
+							</ion-col>
+						</ion-row>
+						<div col-lg-6 col-md-6 col-12 class="m-0-auto send-btn">
+							<button ion-button col-12 round color="primary">Send</button>
+						</div>
+					</form>
+				</div>
+			</ion-grid>
+		</ion-row>
+	</section>
+	<static-footer></static-footer>
+</ion-content>

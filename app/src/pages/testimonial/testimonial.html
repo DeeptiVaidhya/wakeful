@@ -1,0 +1,44 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title text-center> {{ page_info.title }} </ion-title>
+        <a menuToggle end>
+            <ion-icon name="im-menu"></ion-icon>
+        </a>
+    </ion-navbar>
+</ion-header>
+
+<ion-content [style.backgroundImage]="'url('+bg_image+')'">
+    <section class="w-1024 v-align-center" justify-content-center padding-bottom>
+        <div col-lg-8 col-11 class="m-0-auto">
+            <h1 class="gray-text f-32 l-height-35" padding text-center><strong>{{ page_detail.header }}</strong></h1>
+            <div class="slider-container">
+                <ion-slides pager="true">
+                    <ion-slide *ngFor="let testimonial of  page_detail.sub_details">
+                        <img class="round-image" src='{{testimonial.url}}' alt="{{testimonial.name}}" />
+                        <p class="slide-text text-center gray-text">
+                            <ion-icon style="color:#af96c1" class="icon-flipped" ios="ios-quote" md="md-quote" float-left></ion-icon>
+                            {{testimonial.quote}}
+                            <ion-icon style="color:#af96c1" class="" ios="ios-quote" md="md-quote" float-right margin-right></ion-icon>
+                        </p>
+                        <p class="gray-text t-uper testi-name f-16" padding-bottom padding-top text-center>- {{testimonial.name}}
+
+                        </p>
+                    </ion-slide>
+
+                </ion-slides>
+                <div class="swiper-button-prev" (click)="slidePrev()"></div>
+                <div class="swiper-button-next" (click)="slideNext()"></div>
+            </div>
+            <div margin-top class="m-0-auto" text-center col-12 col-lg-7 col-md-7 col-sm-12>
+                <button ion-button col-12 round type="button" color="primary" (click)="nextPage()" [disabled]="disableButton">{{ page_detail.button_text }}</button>
+            </div>
+        </div>
+    </section>
+</ion-content>
+<ion-footer class="progress-wrapper">
+    <div class="w-1024">
+        <div col-md-12 col-sm-12 col-12 class="m-0-auto">
+            <progress-bar [progress]="progress"></progress-bar>
+        </div>
+    </div>
+</ion-footer>

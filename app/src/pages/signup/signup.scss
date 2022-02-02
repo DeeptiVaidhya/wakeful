@@ -1,0 +1,33 @@
+.label-md{
+    margin-bottom: 10px !important;
+}
+
+.checkbox-md-dark .checkbox-checked .checkbox-inner {
+    border-color: #4CAF50;
+}
+.checkbox-md-dark .checkbox-checked {
+    border-color: #f4f9f3;
+    background-color: #ffffff;
+}
+.checkbox-md .checkbox-icon {
+    width: 26px;
+    height: 26px;
+}
+.checkbox-ios {
+    top: 10px !important;
+}
+.checkbox-md .checkbox-checked .checkbox-inner {
+    left: 7px;
+    top: 2px;
+    position: absolute;
+    width: 7px;
+    height: 14px;
+}
+.check-label {
+  font-size: 14px !important;
+    line-height: 22px;
+}
+
+.checkbox-md .checkbox-icon {
+    top: 18px;
+}

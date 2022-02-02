@@ -1,0 +1,69 @@
+<!--
+  Generated template for the HomeworkPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <app-header [title]="title"></app-header>
+</ion-header>
+
+<ion-content [style.backgroundImage]="'url('+bg_image+')'">
+    <section class="w-1024 p-0-mob m-t-10">
+        <ion-list inset class="btn-list">
+            <p class="text-light-gray mob-p-l-r t-c-mob" text-center padding-bottom>Select the class below to see daily required exercises and supportive resources.</p>
+            <div class="div-opacity" *ngIf="!REVISIT_CLASS">
+                <ion-item *ngFor="let homework of homeworkList; let i=index" text-wrap (click)="homework.status && toggleGroup(i)" [class.open]="homework.classes_id == classId || isGroupShown(i)" [class.active]="homework.status" class="list">
+                    <div>
+                        <h2>
+                            <strong>{{homework.class_title}}</strong>
+                        </h2>
+                    </div>
+                    <!-- <ion-icon padding-right color="primary" name="ios-arrow-forward" item-right></ion-icon> -->
+                    <span class="accordian-plus-minus" *ngIf="homework.status==1">
+						<ion-icon padding-right item-right color="primary" [name]="isGroupShown(i) ? 'remove' : 'add'" class="icon-add-min"></ion-icon>
+					</span>
+                    <ion-icon padding-right color="gray" name="ios-lock-outline" item-right *ngIf="homework.status==0"></ion-icon>
+                    <!-- <ion-icon class="icon-gray" [name]="isGroupShown(i) ? 'remove' : 'add'" name="add" item-right *ngIf="homework.status==1"></ion-icon> -->
+
+                    <div *ngIf="isGroupShown(i)" class="accordian-oppen-bg">
+                        <ion-list inset>
+                            <ion-item style="padding:0" detail-push ion-item *ngFor="let exercise of homework.list" (click)="homeworkDetail(exercise)">
+                                <div class="accordian-text">
+                                    <h2>
+                                        <strong>{{ exercise.title }}</strong>
+                                    </h2>
+                                </div>
+                                <ion-icon padding-right color="primary" name="ios-arrow-forward" item-right></ion-icon>
+                            </ion-item>
+                        </ion-list>
+                    </div>
+                </ion-item>
+            </div>
+            <div class="div-opacity" *ngIf="REVISIT_CLASS">
+                <ion-item *ngFor="let homework of homeworkList; let i=index" text-wrap (click)="toggleGroup(i)" [class.open]="isGroupShown(i) || checkClass(i,homework)" [class.active]="homework.status" class="list">
+                    <div>
+                        <h2>
+                            <strong class="strong">{{homework.class_title}}</strong>
+                        </h2>
+                    </div>
+                    <span class="accordian-plus-minus">
+						<ion-icon padding-right item-right color="primary" [name]="isGroupShown(i) ? 'remove' : 'add'" class="icon-add-min"></ion-icon>
+					</span>
+                    <div *ngIf="isGroupShown(i)" class="accordian-oppen-bg">
+                        <ion-list inset>
+                            <ion-item style="padding:0" detail-push ion-item *ngFor="let exercise of homework.list" (click)="homeworkDetail(exercise)">
+                                <div class="accordian-text">
+                                    <h2>
+                                        <strong class="strong">{{ exercise.title }}</strong>
+                                    </h2>
+                                </div>
+                                <ion-icon padding-right color="primary" name="ios-arrow-forward" item-right></ion-icon>
+                            </ion-item>
+                        </ion-list>
+                    </div>
+                </ion-item>
+            </div>
+        </ion-list>
+    </section>
+</ion-content>

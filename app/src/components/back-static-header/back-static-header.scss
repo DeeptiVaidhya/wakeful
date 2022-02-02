@@ -1,0 +1,31 @@
+back-static-header {
+    a[menuToggle] {
+        min-width: 46px;
+        margin: 0 6px;
+    }
+    .center-logo {
+        width: 38px;
+    }
+}
+
+.toolbar-background,
+ion-header {
+    background: #FFF
+}
+
+page-home {
+    .toolbar-background,
+    ion-header {
+        background: transparent
+    }
+}
+.red-dot {
+    height: 15px;
+    width: 15px;
+    background-color: red;
+    border-radius: 50px;
+    position: absolute;
+    top: -3px;
+    right: 5px;
+
+}
